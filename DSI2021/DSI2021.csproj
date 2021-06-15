@@ -57,16 +57,34 @@
     <Compile Include="Business\TipoEntrada.cs" />
     <Compile Include="Business\TipoVisita.cs" />
     <Compile Include="Data\Hora.cs" />
+    <Compile Include="Frontend\frmVentanaConfirmacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\frmVentanaConfirmacion.Designer.cs">
+      <DependentUpon>frmVentanaConfirmacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frontend\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\PantallaRegistroVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\PantallaRegistroVenta.Designer.cs">
+      <DependentUpon>PantallaRegistroVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frontend\frmVentanaConfirmacion.resx">
+      <DependentUpon>frmVentanaConfirmacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\PantallaRegistroVenta.resx">
+      <DependentUpon>PantallaRegistroVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -76,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,6 +109,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Museo negro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Museo blanco.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
