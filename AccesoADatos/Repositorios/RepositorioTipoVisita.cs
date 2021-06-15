@@ -10,13 +10,13 @@ namespace AccesoADatos.Repositorios
     public class RepositorioTipoVisita : RepositorioBase<TipoVisita>
     {
 
-        private readonly MueseoBaseEntities _baseDeDatos = new MueseoBaseEntities();
+        private readonly MuseoEntities _baseDeDatos = new MuseoEntities();
 
         public bool ActualizarEntidad(TipoVisita entidad)
         {
             if (entidad != null)
             {
-                var entidadBase = _baseDeDatos.TipoVisita.FirstOrDefault(x => x.GetId() == entidad.GetId());
+                var entidadBase = _baseDeDatos.TipoVisita.FirstOrDefault(x => x.Id == entidad.Id);
 
                 //actualizar entidad
                 ///entidad. = entidad.GetId();
@@ -32,7 +32,7 @@ namespace AccesoADatos.Repositorios
         {
             if (entidad != null)
             {
-                var entidadBase = _baseDeDatos.TipoVisita.FirstOrDefault(x => x.GetId() == entidad.GetId());
+                var entidadBase = _baseDeDatos.TipoVisita.FirstOrDefault(x => x.Id == entidad.Id);
                 _baseDeDatos.TipoVisita.Remove(entidadBase);
                 return true;
             }

@@ -15,7 +15,9 @@ namespace Servicios
 
         public List<Tarifa> MostrarTarifasExistentes(Sede sede)
         {
-            return _repositorioTarifa.ListarTarifaPorSede(sede.Id);
+
+            //return _repositorioTarifa.ListarTarifaPorSede(sede.Id);
+            return new List<Tarifa>();
         }
 
 

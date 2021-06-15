@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Facultad 2021\DiseñoDeSistemas\Trabajo Practico integrador\DSI-2021-Museo\AccesoADatos\MuseoDB.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Facultad 2021\DiseñoDeSistemas\Trabajo Practico integrador\Test\DSI-2021-Museo\AccesoADatos\Museo.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -9,7 +9,7 @@ namespace AccesoADatos.Repositorios
 {
     public class RepositorioDetalleDeExposicion : RepositorioBase<DetalleExposicion>
     {
-        private readonly MueseoBaseEntities _baseDeDatos = new MueseoBaseEntities();
+        private readonly MuseoEntities _baseDeDatos = new MuseoEntities();
         public bool ActualizarEntidad(DetalleExposicion entidad)
         {
             if (entidad != null)

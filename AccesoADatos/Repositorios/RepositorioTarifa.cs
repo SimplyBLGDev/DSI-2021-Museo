@@ -10,7 +10,7 @@ namespace AccesoADatos.Repositorios
     public class RepositorioTarifa : RepositorioBase<Tarifa>
     {
 
-        private readonly MueseoBaseEntities _baseDeDatos = new MueseoBaseEntities();
+        private readonly MuseoEntities _baseDeDatos = new MuseoEntities();
 
         public bool ActualizarEntidad(Tarifa entidad)
         {

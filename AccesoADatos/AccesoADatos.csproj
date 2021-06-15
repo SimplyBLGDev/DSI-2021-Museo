@@ -49,16 +49,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Entidades\Sede.cs" />
-    <Compile Include="MuseoDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MuseoDB.Context.tt</DependentUpon>
+    <Compile Include="DetalleExposicion.cs">
+      <DependentUpon>Museo.tt</DependentUpon>
     </Compile>
-    <Compile Include="MuseoDB.Designer.cs">
+    <Compile Include="Entidades\Sede.cs" />
+    <Compile Include="Entrada.cs">
+      <DependentUpon>Museo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Exposicion.cs">
+      <DependentUpon>Museo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Museo.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MuseoDB.edmx</DependentUpon>
+      <DependentUpon>Museo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Museo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Museo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Museo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Museo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Obra.cs">
+      <DependentUpon>Museo.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioBase.cs" />
@@ -71,34 +88,47 @@
     <Compile Include="Repositorios\RepositorioSede.cs" />
     <Compile Include="Repositorios\RepositorioReservaVisita.cs" />
     <Compile Include="Repositorios\RepositorioTarifa.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="MuseoDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MuseoDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="ReservaVisita.cs">
+      <DependentUpon>Museo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sede.cs">
+      <DependentUpon>Museo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tarifa.cs">
+      <DependentUpon>Museo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoEntrada.cs">
+      <DependentUpon>Museo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoVisita.cs">
+      <DependentUpon>Museo.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="MuseoDB.edmx.diagram">
-      <DependentUpon>MuseoDB.edmx</DependentUpon>
+    <EntityDeploy Include="Museo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Museo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Museo.edmx.diagram">
+      <DependentUpon>Museo.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MuseoDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MuseoDB.Context.cs</LastGenOutput>
-      <DependentUpon>MuseoDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="MuseoDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MuseoDB.edmx</DependentUpon>
-      <LastGenOutput>MuseoDB.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Museo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Museo.edmx</DependentUpon>
+      <LastGenOutput>Museo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Museo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Museo.edmx</DependentUpon>
+      <LastGenOutput>Museo.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

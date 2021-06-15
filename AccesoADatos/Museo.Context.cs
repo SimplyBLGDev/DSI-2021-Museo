@@ -9,15 +9,14 @@
 
 namespace AccesoADatos
 {
-    using AccesoADatos.Entidades;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MueseoBaseEntities : DbContext
+    public partial class MuseoEntities : DbContext
     {
-        public MueseoBaseEntities()
-            : base("name=MuseoBaseEntities")
+        public MuseoEntities()
+            : base("name=MuseoEntities")
         {
         }
     
@@ -26,15 +25,14 @@ namespace AccesoADatos
             throw new UnintentionalCodeFirstException();
         }
     
-       
+        public DbSet<DetalleExposicion> DetalleExposicion { get; set; }
+        public DbSet<Entrada> Entrada { get; set; }
+        public DbSet<Exposicion> Exposicion { get; set; }
+        public DbSet<Obra> Obra { get; set; }
+        public DbSet<ReservaVisita> ReservaVisita { get; set; }
         public DbSet<Sede> Sede { get; set; }
         public DbSet<Tarifa> Tarifa { get; set; }
-        public DbSet<TipoVisita> TipoVisita { get; set; }
         public DbSet<TipoEntrada> TipoEntrada { get; set; }
-        public DbSet<Exposicion> Exposicion { get; set; }
-        public DbSet<DetalleExposicion> DetalleExposicion { get; set; }
-        public DbSet<Obra> Obra { get; set; }
-        public DbSet<Entrada> Entrada { get; set; }
-        public DbSet<ReservaVisita> ReservaVisita { get; set; }
+        public DbSet<TipoVisita> TipoVisita { get; set; }
     }
 }
