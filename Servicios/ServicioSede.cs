@@ -1,5 +1,6 @@
 ﻿
 using Servicios.Business;
+using Servicios.Data;
 using System;
 using System.Collections.Generic;
 
@@ -9,6 +10,7 @@ namespace Servicios
     {
 
         private readonly ServicioTarifa _servicioTarifa = new ServicioTarifa();
+        private readonly ServicioExposiciones _servicioExposiciones = new ServicioExposiciones();
         private readonly MapperEntidades mapper = new MapperEntidades();
 
         public List<Tarifa> MostrarTarifasExistentes(Sede sede)
@@ -29,6 +31,18 @@ namespace Servicios
             return listadoTarifasVigentes;
         }
 
+        //preguntar como funciona la estructura Hora 
+        public Hora MostrarDuracionDeVisita(Sede sede)
+        {
+            Hora duracionVisita = new Hora(0);
+            var listadoDeExposiciones = _servicioExposiciones.MostrarExposicionesVigentesPorSede(sede);
 
+            foreach (var exposicion in listadoDeExposiciones)
+            {
+                duracionVisita = duracionVisita + exposicion.CalcularDuracionVisita();
+            }
+
+            return duracionVisita;
+        }
     }
 }

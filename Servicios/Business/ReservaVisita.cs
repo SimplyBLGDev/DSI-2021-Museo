@@ -18,8 +18,16 @@ namespace Servicios.Business
 			return sede;
 		}
 
-		private bool ValidarHorarioReserva(DateTime fecha) {
+		public bool ValidarHorarioReserva(DateTime fecha) {
 			return fecha.Date == fechaHoraReserva.Date;
 		}
+
+		public int GetCantidadDeAlumnosConfirmada()
+		{
+			return cantidadAlumnosConfirmada;
+		}
+
+
+		
 	}
 }

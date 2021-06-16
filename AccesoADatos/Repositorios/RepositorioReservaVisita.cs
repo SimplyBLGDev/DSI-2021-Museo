@@ -49,5 +49,10 @@ namespace AccesoADatos.Repositorios
         {
             return _baseDeDatos.ReservaVisita.ToList();
         }
+
+        public List<Entrada> ListarReservasPorSede(int idSede)
+        {
+            return _baseDeDatos.Entrada.Where(x => x.IdSede == idSede).ToList();
+        }
     }
 }

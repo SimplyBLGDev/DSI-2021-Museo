@@ -56,7 +56,10 @@
     <Compile Include="Business\TipoVisita.cs" />
     <Compile Include="Data\Hora.cs" />
     <Compile Include="MapperEntidades.cs" />
+    <Compile Include="ServicioEntrada.cs" />
+    <Compile Include="ServicioReservas.cs" />
     <Compile Include="ServicioSede.cs" />
+    <Compile Include="ServicioExposiciones.cs" />
     <Compile Include="ServicioTarifa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

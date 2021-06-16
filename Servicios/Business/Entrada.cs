@@ -10,6 +10,7 @@ namespace Servicios.Business {
 		private DateTime fechaVenta;
 		private int monto;
 		private int numero;
+		public int Id { get; set; }
 
 		public Sede GetSede() {
 			return sede;

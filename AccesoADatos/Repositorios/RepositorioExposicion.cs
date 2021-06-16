@@ -50,5 +50,9 @@ namespace AccesoADatos.Repositorios
         {
             return _baseDeDatos.Exposicion.ToList();
         }
+        public List<Exposicion> ListarExposicionesPorSede(int idSede)
+        {
+            return _baseDeDatos.Exposicion.Where(x => x.IdSede == idSede).ToList();
+        }
     }
 }

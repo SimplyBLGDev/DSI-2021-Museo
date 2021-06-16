@@ -49,5 +49,11 @@ namespace AccesoADatos.Repositorios
         {
             return _baseDeDatos.Entrada.ToList();
         }
+
+        public List<Entrada> ListarEntradasPorSede(int idSede)
+        {
+            return _baseDeDatos.Entrada.Where(x => x.IdSede == idSede).ToList();
+        }
+
     }
 }
