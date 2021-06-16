@@ -1,12 +1,13 @@
-﻿using DSI2021.Data;
+﻿
+using Servicios.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSI2021.Business {
-	class Exposicion {
+namespace Servicios.Business {
+	public class Exposicion {
 		private string nombre;
 		private DateTime fechaInicio;
 		private DateTime fechaFin;

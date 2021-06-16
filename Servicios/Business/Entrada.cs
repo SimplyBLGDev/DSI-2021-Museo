@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSI2021.Business {
-	class Entrada {
+namespace Servicios.Business {
+	public class Entrada {
 		private Sede sede;
 		private DateTime fechaVenta;
 		private int monto;

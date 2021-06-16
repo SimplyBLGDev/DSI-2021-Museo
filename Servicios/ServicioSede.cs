@@ -1,10 +1,7 @@
-﻿using AccesoADatos.Entidades;
-using AccesoADatos.Repositorios;
+﻿
+using Servicios.Business;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios
 {
@@ -12,18 +9,19 @@ namespace Servicios
     {
 
         private readonly ServicioTarifa _servicioTarifa = new ServicioTarifa();
+        private readonly MapperEntidades mapper = new MapperEntidades();
 
         public List<Tarifa> MostrarTarifasExistentes(Sede sede)
         {
-            var listadoTarifas = _servicioTarifa.MostrarTarifasExistentes(sede);
+
+            var sedeBase = mapper.Mapper.Map<AccesoADatos.Sede>(sede);
+            var listadoTarifas = mapper.Mapper.Map<List<Tarifa>>(_servicioTarifa.MostrarTarifasExistentes(sedeBase));
             List<Tarifa> listadoTarifasVigentes = new List<Tarifa>();
 
             foreach (var tarifa in listadoTarifas)
             {
-                if (tarifa.EsVigente())
+                if (tarifa.EsVigente(DateTime.Now))
                 {
-                    tarifa.GetTipoDeEntrada();
-                    tarifa.GetTipoVisita();
                     listadoTarifasVigentes.Add(tarifa);
                 }
             }

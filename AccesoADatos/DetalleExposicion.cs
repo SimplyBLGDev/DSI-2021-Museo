@@ -18,8 +18,7 @@ namespace AccesoADatos
         public int IdExposicion { get; set; }
         public Nullable<int> IdObra { get; set; }
     
+        public virtual Exposicion Exposicion { get; set; }
         public virtual Obra Obra { get; set; }
-        public virtual DetalleExposicion DetalleExposicion1 { get; set; }
-        public virtual DetalleExposicion DetalleExposicion2 { get; set; }
     }
 }

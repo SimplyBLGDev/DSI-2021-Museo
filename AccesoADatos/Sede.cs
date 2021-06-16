@@ -16,7 +16,9 @@ namespace AccesoADatos
     {
         public Sede()
         {
+            this.Entrada = new HashSet<Entrada>();
             this.Exposicion = new HashSet<Exposicion>();
+            this.ReservaVisita = new HashSet<ReservaVisita>();
             this.Tarifa = new HashSet<Tarifa>();
         }
     
@@ -25,7 +27,9 @@ namespace AccesoADatos
         public Nullable<int> CantMaxPorGuia { get; set; }
         public Nullable<int> CantMaximaVisitantes { get; set; }
     
+        public virtual ICollection<Entrada> Entrada { get; set; }
         public virtual ICollection<Exposicion> Exposicion { get; set; }
+        public virtual ICollection<ReservaVisita> ReservaVisita { get; set; }
         public virtual ICollection<Tarifa> Tarifa { get; set; }
     }
 }

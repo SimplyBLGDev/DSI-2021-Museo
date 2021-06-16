@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSI2021.Business {
-	class GestorRegistroVenta {
+namespace Servicios.Business {
+	public class GestorRegistroVenta {
 		private int cantidadEntradas;
 		private bool conGuia;
 		private float montoAdicionalPorGuia;

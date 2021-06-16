@@ -23,5 +23,8 @@ namespace AccesoADatos
         public string HoraFinReal { get; set; }
         public string HoraInicioReal { get; set; }
         public string NumeroReserva { get; set; }
+        public Nullable<int> IdSede { get; set; }
+    
+        public virtual Sede Sede { get; set; }
     }
 }

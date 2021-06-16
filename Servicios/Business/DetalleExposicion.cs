@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoADatos
-{
-    public class Class1
-    {
-    }
+namespace Servicios.Business {
+	public class DetalleExposicion {
+		private Obra obra;
+		private string lugarAsignado;
+	}
 }

@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSI2021.Business {
-	class DetalleExposicion {
-		private Obra obra;
-		private string lugarAsignado;
+namespace Servicios.Business {
+	public class Sede {
+		public int Id { get; set; }
 	}
 }

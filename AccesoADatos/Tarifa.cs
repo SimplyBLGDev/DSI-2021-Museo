@@ -15,8 +15,8 @@ namespace AccesoADatos
     public partial class Tarifa
     {
         public int Id { get; set; }
-        public Nullable<System.DateTime> FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaInicioVigencia { get; set; }
+        public Nullable<System.DateTime> FechaFinVigencia { get; set; }
         public Nullable<decimal> Monto { get; set; }
         public Nullable<decimal> MontoAdicionalGuia { get; set; }
         public Nullable<int> IdSede { get; set; }

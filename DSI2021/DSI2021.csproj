@@ -46,17 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\DetalleExposicion.cs" />
-    <Compile Include="Business\Entrada.cs" />
-    <Compile Include="Business\Exposicion.cs" />
-    <Compile Include="Business\GestorRegistroVenta.cs" />
-    <Compile Include="Business\Obra.cs" />
-    <Compile Include="Business\ReservaVisita.cs" />
-    <Compile Include="Business\Sede.cs" />
-    <Compile Include="Business\Tarifa.cs" />
-    <Compile Include="Business\TipoEntrada.cs" />
-    <Compile Include="Business\TipoVisita.cs" />
-    <Compile Include="Data\Hora.cs" />
     <Compile Include="Frontend\frmVentanaConfirmacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,16 +96,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\Servicios\Servicios.csproj">
+      <Project>{74a7bdc2-da52-4650-8a4c-4260f91cd13f}</Project>
+      <Name>Servicios</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Museo negro.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Museo blanco.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

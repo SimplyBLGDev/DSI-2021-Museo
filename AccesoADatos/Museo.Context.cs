@@ -16,7 +16,7 @@ namespace AccesoADatos
     public partial class MuseoEntities : DbContext
     {
         public MuseoEntities()
-            : base("name=MuseoEntities")
+            : base("metadata=res://*/Museo.csdl|res://*/Museo.ssdl|res://*/Museo.msl;provider=System.Data.SqlClient;provider connection string='data source=JHON\\SQLEXPRESS;initial catalog=Museo;integrated security=True;MultipleActiveResultSets=True'")
         {
         }
     

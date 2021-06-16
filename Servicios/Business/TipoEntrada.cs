@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSI2021.Business {
-	class TipoVisita {
+namespace Servicios.Business {
+	public class TipoEntrada {
 		private string nombre;
 
 		public string GetNombre() {

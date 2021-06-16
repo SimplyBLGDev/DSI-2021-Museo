@@ -19,5 +19,8 @@ namespace AccesoADatos
         public string HoraVenta { get; set; }
         public Nullable<decimal> Monto { get; set; }
         public string Numero { get; set; }
+        public Nullable<int> IdSede { get; set; }
+    
+        public virtual Sede Sede { get; set; }
     }
 }

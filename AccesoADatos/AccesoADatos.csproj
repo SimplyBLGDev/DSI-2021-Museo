@@ -48,11 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DetalleExposicion.cs">
       <DependentUpon>Museo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entidades\Sede.cs" />
     <Compile Include="Entrada.cs">
       <DependentUpon>Museo.tt</DependentUpon>
     </Compile>
@@ -105,11 +103,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
     <EntityDeploy Include="Museo.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Museo.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Museo.edmx.diagram">
       <DependentUpon>Museo.edmx</DependentUpon>
     </None>

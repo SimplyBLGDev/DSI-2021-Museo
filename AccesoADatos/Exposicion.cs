@@ -14,6 +14,11 @@ namespace AccesoADatos
     
     public partial class Exposicion
     {
+        public Exposicion()
+        {
+            this.DetalleExposicion = new HashSet<DetalleExposicion>();
+        }
+    
         public int Id { get; set; }
         public Nullable<System.DateTime> FechaFin { get; set; }
         public Nullable<System.DateTime> FechaFinReplanificacion { get; set; }
@@ -24,6 +29,7 @@ namespace AccesoADatos
         public string Nombre { get; set; }
         public Nullable<int> IdSede { get; set; }
     
+        public virtual ICollection<DetalleExposicion> DetalleExposicion { get; set; }
         public virtual Sede Sede { get; set; }
     }
 }
