@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DSI2021.Business {
-	class TipoVisita {
+	public class TipoVisita {
 		private string nombre;
 
 		public string GetNombre() {
