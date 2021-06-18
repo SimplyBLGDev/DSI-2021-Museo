@@ -17,7 +17,7 @@ namespace DSI2021 {
 			InitializeComponent();
 
 			var servicio = new ServicioSede();
-			var tarifas = servicio.MostrarTarifasExistentes(new Sede { Id = 1 });
+            GestorRegistroVenta.Inicilizar();
 		}
 
         private Form activeForm = null;

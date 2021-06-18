@@ -4,13 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSI2021.Business {
+namespace Servicios.Business {
 	public static class GestorRegistroVenta {
 		private static int cantidadEntradas;
 		private static bool conGuia;
 		private static float montoAdicionalPorGuia;
 		private static Sede sedeActual;
 		private static List<Tarifa> tarifas;
+
+		private static ServicioTarifa _servicioTarifa = new ServicioTarifa();
+		private static ServicioSede _servicioSede = new ServicioSede();
+
+		public static void Inicilizar()
+		{
+			tarifas = _servicioTarifa.MostrarTarifasExistentes(new Sede { Id=1});
+		}
 
 		public static DateTime GetFechaActual() {
 			return DateTime.Now;
