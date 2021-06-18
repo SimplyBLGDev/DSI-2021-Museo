@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSI2021.Data {
+namespace Servicios.Data {
 	public struct Hora {
 		public int seconds;
 

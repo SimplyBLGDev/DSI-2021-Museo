@@ -1,12 +1,9 @@
-﻿using DSI2021.Data;
+﻿using Servicios.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DSI2021.Business {
-	class ReservaVisita {
+namespace Servicios.Business
+{
+	public class ReservaVisita {
 		private Sede sede;
 		private int cantidadAlumnos;
 		private int cantidadAlumnosConfirmada;
@@ -21,8 +18,16 @@ namespace DSI2021.Business {
 			return sede;
 		}
 
-		private bool ValidarHorarioReserva(DateTime fecha) {
+		public bool ValidarHorarioReserva(DateTime fecha) {
 			return fecha.Date == fechaHoraReserva.Date;
 		}
+
+		public int GetCantidadDeAlumnosConfirmada()
+		{
+			return cantidadAlumnosConfirmada;
+		}
+
+
+		
 	}
 }

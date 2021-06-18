@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Servicios;
+using Servicios.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,9 @@ namespace DSI2021 {
 	public partial class MainMenu : Form {
 		public MainMenu() {
 			InitializeComponent();
+
+			var servicio = new ServicioSede();
+			var tarifas = servicio.MostrarTarifasExistentes(new Sede { Id = 1 });
 		}
 
         private Form activeForm = null;
