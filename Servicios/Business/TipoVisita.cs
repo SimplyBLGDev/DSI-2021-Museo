@@ -4,10 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSI2021.Business {
+namespace Servicios.Business {
 	public class TipoVisita {
 		private string nombre;
 
+		public static implicit operator TipoVisita(AccesoADatos.TipoVisita tarifaBd)
+		{
+			var nuevo = new TipoVisita();
+			nuevo.nombre = tarifaBd.Nombre;
+
+			return nuevo;
+		}
 		public string GetNombre() {
 			return nombre;
 		}

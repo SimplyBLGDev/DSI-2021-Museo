@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servicios.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DSI2021.Business;
-using DSI2021.Frontend;
+
+
 
 namespace DSI2021.Frontend {
     public partial class PantallaRegistroVenta : Form {
         public PantallaRegistroVenta() {
             InitializeComponent();
+          
         }
 
         private void btnGenerar(object sender, EventArgs e) {

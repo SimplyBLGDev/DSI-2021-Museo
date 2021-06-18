@@ -4,17 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSI2021.Business {
+namespace Servicios.Business {
 	public class Tarifa {
-		private DateTime fechaInicioVigencia;
-		private DateTime fechaFinVigencia;
+		private DateTime? fechaInicioVigencia;
+		private DateTime? fechaFinVigencia;
 		private int monto;
 		private float montoAdicionalGuia;
 		private TipoVisita tipoVisita;
 		private TipoEntrada tipoEntrada;
 
+
+		public static implicit operator Tarifa(AccesoADatos.Tarifa tarifaBd) {
+			var nuevo = new Tarifa();
+			nuevo.fechaFinVigencia = tarifaBd.FechaFinVigencia;
+			nuevo.fechaInicioVigencia = tarifaBd.FechaInicioVigencia;
+			nuevo.tipoEntrada = tarifaBd.TipoEntrada;
+			nuevo.tipoVisita = tarifaBd.TipoVisita;
+			return nuevo;
+		}
+
 		public bool EsVigente(DateTime fecha) {
-			return fecha < fechaFinVigencia && fecha > fechaInicioVigencia;
+
+			return (fechaFinVigencia == null || fecha < fechaFinVigencia) && fecha > fechaInicioVigencia;
 		}
 
 		public int GetMonto() {
