@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servicios.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,13 @@ namespace Servicios.Business {
 		private static ServicioTarifa _servicioTarifa = new ServicioTarifa();
 		private static ServicioSede _servicioSede = new ServicioSede();
 
-		public static void Inicilizar()
+		public static void Inicializar()
 		{
 			tarifas = _servicioTarifa.MostrarTarifasExistentes(new Sede { Id=1});
+		}
+
+		public static Hora CalcularDuracionVisita() {
+			return _servicioSede.MostrarDuracionDeVisita(sedeActual);
 		}
 
 		public static DateTime GetFechaActual() {

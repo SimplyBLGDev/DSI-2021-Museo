@@ -25,7 +25,6 @@ namespace Servicios
             return listadoTarifasVigentes;
         }
 
-        //preguntar como funciona la estructura Hora 
         public Hora MostrarDuracionDeVisita(Sede sede)
         {
             Hora duracionVisita = new Hora(0);
