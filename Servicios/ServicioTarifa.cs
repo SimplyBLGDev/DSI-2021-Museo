@@ -14,7 +14,6 @@ namespace Servicios
 
         public List<Tarifa> MostrarTarifasExistentes(Sede sede)
         {
-            //var listadoTarifas = mapper.Mapper.Map<List<Tarifa>>(_repositorioTarifa.ListarTarifaPorSede(sede.Id));
             var listadoTarifas = _repositorioTarifa.ListarTarifaPorSede(sede.Id).Select( x=> (Tarifa)x).ToList();
             return listadoTarifas;
         }
@@ -22,8 +21,6 @@ namespace Servicios
 
         public List<Tarifa> ListarTarifas()
         {
-
-            //var listadoTarifas = mapper.Mapper.Map<List<Tarifa>>(_repositorioTarifa.Listar());
             var listadoTarifas = _repositorioTarifa.Listar().Select(x => (Tarifa)x).ToList();
             return listadoTarifas;
         }

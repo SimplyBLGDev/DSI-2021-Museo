@@ -15,10 +15,14 @@ namespace Servicios.Business {
 
 		private static ServicioTarifa _servicioTarifa = new ServicioTarifa();
 		private static ServicioSede _servicioSede = new ServicioSede();
+		private static ServicioReservas _servicioReservas = new ServicioReservas();
+		private static ServicioEntrada _servicioEntrada = new ServicioEntrada();
 
 		public static void Inicializar()
 		{
-			tarifas = _servicioTarifa.MostrarTarifasExistentes(new Sede { Id=1});
+			//sedeActual = new Sede { Id = 1 };
+			sedeActual = _servicioSede.MostrarInformacionSede(new Sede { Id = 1 });
+			tarifas = _servicioTarifa.MostrarTarifasExistentes(sedeActual);
 		}
 
 		public static Hora CalcularDuracionVisita() {
@@ -37,6 +41,42 @@ namespace Servicios.Business {
 					tarifasValidas.Add(tarifa);
 
 			return tarifasValidas;
+		}
+
+
+		public static bool ValidarCantidadMaxima(int cantidadEntradasUsuario)
+		{
+			var cantidadMaximaSede = sedeActual.GetCantidadMaximaVisitantes();
+			var cantidadConfirmados = _servicioReservas.CantidadDeAlumnosConfirmados(sedeActual);
+			var cantidadReservas = _servicioEntrada.CantidadEntradasReservadas(sedeActual);
+
+			var superarCantidadMaxima = (cantidadConfirmados + cantidadReservas + cantidadEntradasUsuario) > cantidadMaximaSede;
+
+			return superarCantidadMaxima;
+		}
+
+		public static void RegistrarEntradas(int cantidadEntradas, Tarifa tarifaSeleccionada)
+		{
+			var numeroDeEntrada = _servicioEntrada.ObtenerUlTimoNumero(sedeActual);
+
+			for (int i = 0; i < cantidadEntradas; i++)
+			{
+				var nuevaEntrada = new Entrada();
+				nuevaEntrada.SetTarifa(tarifaSeleccionada);
+				nuevaEntrada.SetSede(sedeActual);
+				nuevaEntrada.SetNumero(numeroDeEntrada);
+				_servicioEntrada.RegistraEntrada(nuevaEntrada);
+				numeroDeEntrada++;
+			}
+
+			ActualizarCantidadDeVisitantes();
+		}
+
+		public static void ActualizarCantidadDeVisitantes()
+		{
+			var cantidadConfirmados = _servicioReservas.CantidadDeAlumnosConfirmados(sedeActual);
+			var cantidadReservas = _servicioEntrada.CantidadEntradasReservadas(sedeActual);
+			cantidadEntradas = (cantidadConfirmados + cantidadReservas);
 		}
 	}
 }

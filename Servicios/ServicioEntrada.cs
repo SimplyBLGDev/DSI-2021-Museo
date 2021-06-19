@@ -4,6 +4,7 @@ using Servicios.Business;
 using Servicios.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Servicios
 {
@@ -12,9 +13,9 @@ namespace Servicios
         private readonly RepositorioEntrada _repositorioEntrada = new RepositorioEntrada();
         private readonly MapperEntidades mapper = new MapperEntidades();
 
-        public int CantidadEntras(Sede sede)
+        public int CantidadEntradasReservadas(Sede sede)
         {
-            var listadoEntradas = mapper.Mapper.Map<List<Entrada>>(_repositorioEntrada.ListarEntradasPorSede(sede.Id));
+            var listadoEntradas = _repositorioEntrada.ListarEntradasPorSede(sede.Id).Select(x => (Entrada)x).ToList();
             var cantidad = 0;
             foreach (var entrada in listadoEntradas)
             {
@@ -29,9 +30,24 @@ namespace Servicios
 
         public int ObtenerUlTimoNumero(Sede sede)
         {
-            var listadoEntradas = mapper.Mapper.Map<List<Entrada>>(_repositorioEntrada.Listar());
+            var listadoEntradas = _repositorioEntrada.Listar().Select(x => (Entrada)x).ToList();
             var ultimaEntrada = listadoEntradas[listadoEntradas.Count - 1];
-            return ultimaEntrada.Id + 1;
+            return ultimaEntrada.GetNumero() + 1;
+        }
+
+
+        public bool RegistraEntrada(Entrada nuevaEntrada)
+        {
+            var entidadDb = new AccesoADatos.Entrada();
+            entidadDb.FechaVenta = DateTime.Now;
+            entidadDb.Monto = nuevaEntrada.GetMonto();
+            entidadDb.Numero = nuevaEntrada.GetNumero().ToString();
+            entidadDb.IdSede = nuevaEntrada.GetSede().Id;
+            entidadDb.IdTarifa = nuevaEntrada.GetTarifa().GetNumeroTarifa();
+
+            _repositorioEntrada.GuardarEntidad(entidadDb);
+
+            return true;
         }
 
 

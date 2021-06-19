@@ -8,24 +8,36 @@ namespace DSI2021.Frontend {
     public partial class PantallaRegistroVenta : Form {
 
         Hora duracionVisita;
+        int cantidadEntradas;
 
         public PantallaRegistroVenta() {
             InitializeComponent();
+            duracionVisita = GestorRegistroVenta.CalcularDuracionVisita();
+            lblDuracionVisita.Text = duracionVisita.ToString();
         }
 
         public void Abrir(Form formulario) {
-            formulario.ShowDialog();
-            duracionVisita = GestorRegistroVenta.CalcularDuracionVisita();
-            lblDuracionVisita = duracionVisita.ToString();
+           if( formulario.ShowDialog() == DialogResult.OK)
+            {
+                GestorRegistroVenta.RegistrarEntradas(cantidadEntradas, GetTarifaSeleccionada());
+            }
+            
             Hide();
         }
 
         private void btnGenerar(object sender, EventArgs e) {
-            int cantidadEntradas;
             int montoPorEntrada;
             int montoTotal;
 
             cantidadEntradas = GetCantidadEntradas();
+
+            //validacion que no supera el cupo de entradas
+            if (GestorRegistroVenta.ValidarCantidadMaxima(cantidadEntradas))
+            {
+                MessageBox.Show("Supero al cantidad maxima de visitanres");
+                return;
+            }
+
 
             Tarifa tarifaSeleccionada = GetTarifaSeleccionada();
             if (tarifaSeleccionada == null) {
@@ -57,6 +69,7 @@ namespace DSI2021.Frontend {
 
         public void MostrarTarifas(List<Tarifa> tarifas) {
             foreach (Tarifa tarifa in tarifas) {
+                var id = tarifa.GetNumeroTarifa();
                 var monto = tarifa.GetMonto();
                 var montoAdicional = tarifa.GetMontoAdicional();
                 var tipoEntrada = tarifa.GetTipoEntrada().GetNombre();
@@ -66,5 +79,6 @@ namespace DSI2021.Frontend {
                 tablaTarifas.Rows[newRowIx].Tag = tarifa;
             }
         }
+
     }
 }

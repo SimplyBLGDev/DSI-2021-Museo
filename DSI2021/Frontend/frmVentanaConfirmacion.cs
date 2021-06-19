@@ -20,7 +20,8 @@ namespace DSI2021.Frontend
 		}
 
 		private void btnConfirmar_Click(object sender, System.EventArgs e) {
-            
-		}
+            DialogResult = DialogResult.OK;
+            Close();
+        }
 	}
 }

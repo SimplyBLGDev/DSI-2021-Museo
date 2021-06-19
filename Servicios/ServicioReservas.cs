@@ -4,6 +4,7 @@ using Servicios.Business;
 using Servicios.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Servicios
 {
@@ -14,8 +15,7 @@ namespace Servicios
 
         public int CantidadDeAlumnosConfirmados(Sede sede)
         {
-            var listadoReservas = mapper.Mapper.Map<List<ReservaVisita>>(_repositorioReserva.ListarReservasPorSede(sede.Id));
-            //List<Tarifa> listadoTarifasVigentes = new List<Tarifa>();
+            var listadoReservas = _repositorioReserva.ListarReservasPorSede(sede.Id).Select(x => (ReservaVisita)x).ToList() ;
             var cantidad = 0;
             foreach (var reserva in listadoReservas)
             {

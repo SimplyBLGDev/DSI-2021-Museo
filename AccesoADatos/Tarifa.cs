@@ -14,6 +14,11 @@ namespace AccesoADatos
     
     public partial class Tarifa
     {
+        public Tarifa()
+        {
+            this.Entrada = new HashSet<Entrada>();
+        }
+    
         public int Id { get; set; }
         public Nullable<System.DateTime> FechaInicioVigencia { get; set; }
         public Nullable<System.DateTime> FechaFinVigencia { get; set; }
@@ -23,6 +28,7 @@ namespace AccesoADatos
         public Nullable<int> IdTipoEntrada { get; set; }
         public Nullable<int> IdTipoVisita { get; set; }
     
+        public virtual ICollection<Entrada> Entrada { get; set; }
         public virtual Sede Sede { get; set; }
         public virtual TipoEntrada TipoEntrada { get; set; }
         public virtual TipoVisita TipoVisita { get; set; }

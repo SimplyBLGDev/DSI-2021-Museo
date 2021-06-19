@@ -52,5 +52,15 @@ namespace AccesoADatos.Repositorios
         {
             return _baseDeDatos.Sede.ToList();
         }
+        public Sede BuscarSede(Sede entidad)
+        {
+            if (entidad != null)
+            {
+                var entidadBase = _baseDeDatos.Sede.FirstOrDefault(x => x.Id == entidad.Id);
+                return entidadBase;
+            }
+
+            return new Sede();
+        }
     }
 }

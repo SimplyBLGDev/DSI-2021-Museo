@@ -4,6 +4,7 @@ using AutoMapper;
 using Servicios.Business;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Servicios
 {
@@ -16,10 +17,10 @@ namespace Servicios
         public List<Exposicion> MostrarExposicionesVigentesPorSede(Sede sede)
         {
             var exposiciones = _repositorioExposicion.ListarExposicionesPorSede(sede.Id);
-            var exposionesDeSede = mapper.Mapper.Map<List<Exposicion>>(exposiciones);
+            var exposicionesBussiness = exposiciones.Select(x => (Exposicion)x).ToList();
             List<Exposicion> listadoExposiciones = new List<Exposicion>();
 
-            foreach (var exposicion in exposionesDeSede)
+            foreach (var exposicion in exposicionesBussiness)
             {
                 if (exposicion.EsVigente(DateTime.Now))
                 {
