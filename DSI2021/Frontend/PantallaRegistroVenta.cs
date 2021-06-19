@@ -11,12 +11,13 @@ namespace DSI2021.Frontend {
 
         public PantallaRegistroVenta() {
             InitializeComponent();
+            duracionVisita = GestorRegistroVenta.CalcularDuracionVisita();
+            lblDuracionVisita.Text = duracionVisita.ToString();
         }
 
         public void Abrir(Form formulario) {
             formulario.ShowDialog();
-            duracionVisita = GestorRegistroVenta.CalcularDuracionVisita();
-            lblDuracionVisita = duracionVisita.ToString();
+            
             Hide();
         }
 
@@ -57,6 +58,7 @@ namespace DSI2021.Frontend {
 
         public void MostrarTarifas(List<Tarifa> tarifas) {
             foreach (Tarifa tarifa in tarifas) {
+                var id = tarifa.GetNumeroTarifa();
                 var monto = tarifa.GetMonto();
                 var montoAdicional = tarifa.GetMontoAdicional();
                 var tipoEntrada = tarifa.GetTipoEntrada().GetNombre();
@@ -66,5 +68,6 @@ namespace DSI2021.Frontend {
                 tablaTarifas.Rows[newRowIx].Tag = tarifa;
             }
         }
+
     }
 }

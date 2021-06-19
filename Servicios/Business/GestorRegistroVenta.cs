@@ -18,7 +18,8 @@ namespace Servicios.Business {
 
 		public static void Inicializar()
 		{
-			tarifas = _servicioTarifa.MostrarTarifasExistentes(new Sede { Id=1});
+			sedeActual = new Sede { Id = 1 };
+			tarifas = _servicioTarifa.MostrarTarifasExistentes(sedeActual);
 		}
 
 		public static Hora CalcularDuracionVisita() {

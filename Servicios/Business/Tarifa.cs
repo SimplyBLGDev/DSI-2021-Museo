@@ -12,10 +12,12 @@ namespace Servicios.Business {
 		private float montoAdicionalGuia;
 		private TipoVisita tipoVisita;
 		private TipoEntrada tipoEntrada;
+		private int Id;
 
 
 		public static implicit operator Tarifa(AccesoADatos.Tarifa tarifaBd) {
 			var nuevo = new Tarifa();
+			nuevo.Id = tarifaBd.Id;
 			nuevo.fechaFinVigencia = tarifaBd.FechaFinVigencia;
 			nuevo.fechaInicioVigencia = tarifaBd.FechaInicioVigencia;
 			nuevo.tipoEntrada = tarifaBd.TipoEntrada;
@@ -26,6 +28,11 @@ namespace Servicios.Business {
 		public bool EsVigente(DateTime fecha) {
 
 			return (fechaFinVigencia == null || fecha < fechaFinVigencia) && fecha > fechaInicioVigencia;
+		}
+
+		public int GetNumeroTarifa()
+		{
+			return Id;
 		}
 
 		public int GetMonto() {

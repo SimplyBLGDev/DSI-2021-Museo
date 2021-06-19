@@ -8,18 +8,33 @@ using System.Threading.Tasks;
 
 namespace Servicios.Business {
 	public class Exposicion {
+		
 		private string nombre;
-		private DateTime fechaInicio;
-		private DateTime fechaFin;
+		private DateTime? fechaInicio;
+		private DateTime? fechaFin;
 		private Hora horaApertura;
 		private Hora horaCierre;
+
+
+		public static implicit operator Exposicion(AccesoADatos.Exposicion tarifaBd)
+		{
+			var nuevo = new Exposicion();
+			nuevo.nombre = tarifaBd.Nombre;
+			nuevo.fechaInicio = tarifaBd.FechaInicio;
+			nuevo.fechaFin = tarifaBd.FechaFin;
+			nuevo.horaApertura = new Hora(int.Parse(tarifaBd.HoraApertura));
+			nuevo.horaCierre = new Hora(int.Parse(tarifaBd.HoraCierra));
+			return nuevo;
+		}
+
+
 
 		public Hora CalcularDuracionVisita() {
 			return horaCierre - horaApertura;
 		}
 
 		public bool EsVigente(DateTime fecha) {
-			return fecha < fechaFin && fecha > fechaInicio;
+			return (fechaFin == null || fecha < fechaFin) && fecha > fechaInicio;
 		}
 	}
 }
