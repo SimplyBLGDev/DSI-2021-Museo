@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MuseoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MuseoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DetalleExposicion">
           <Key>
             <PropertyRef Name="Id" />
@@ -23,6 +23,7 @@
           <Property Name="Monto" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Numero" Type="nvarchar" MaxLength="250" />
           <Property Name="IdSede" Type="int" />
+          <Property Name="IdTarifa" Type="int" />
         </EntityType>
         <EntityType Name="Exposicion">
           <Key>
@@ -142,6 +143,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Entrada_Tarifa">
+          <End Role="Tarifa" Type="Self.Tarifa" Multiplicity="0..1" />
+          <End Role="Entrada" Type="Self.Entrada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tarifa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entrada">
+              <PropertyRef Name="IdTarifa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Exposicion_Sede">
           <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
           <End Role="Exposicion" Type="Self.Exposicion" Multiplicity="*" />
@@ -224,6 +237,10 @@
             <End Role="Sede" EntitySet="Sede" />
             <End Role="Entrada" EntitySet="Entrada" />
           </AssociationSet>
+          <AssociationSet Name="FK_Entrada_Tarifa" Association="Self.FK_Entrada_Tarifa">
+            <End Role="Tarifa" EntitySet="Tarifa" />
+            <End Role="Entrada" EntitySet="Entrada" />
+          </AssociationSet>
           <AssociationSet Name="FK_Exposicion_Sede" Association="Self.FK_Exposicion_Sede">
             <End Role="Sede" EntitySet="Sede" />
             <End Role="Exposicion" EntitySet="Exposicion" />
@@ -245,53 +262,11 @@
             <End Role="Tarifa" EntitySet="Tarifa" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MuseoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="MuseoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="DetalleExposicion" EntityType="MuseoModel.DetalleExposicion" />
-          <EntitySet Name="Entrada" EntityType="MuseoModel.Entrada" />
-          <EntitySet Name="Exposicion" EntityType="MuseoModel.Exposicion" />
-          <EntitySet Name="Obra" EntityType="MuseoModel.Obra" />
-          <EntitySet Name="ReservaVisita" EntityType="MuseoModel.ReservaVisita" />
-          <EntitySet Name="Sede" EntityType="MuseoModel.Sede" />
-          <EntitySet Name="Tarifa" EntityType="MuseoModel.Tarifa" />
-          <EntitySet Name="TipoEntrada" EntityType="MuseoModel.TipoEntrada" />
-          <EntitySet Name="TipoVisita" EntityType="MuseoModel.TipoVisita" />
-          <AssociationSet Name="FK_DetalleExposicion_Exposicion" Association="MuseoModel.FK_DetalleExposicion_Exposicion">
-            <End Role="Exposicion" EntitySet="Exposicion" />
-            <End Role="DetalleExposicion" EntitySet="DetalleExposicion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DetalleExposicion_Obraa" Association="MuseoModel.FK_DetalleExposicion_Obraa">
-            <End Role="Obra" EntitySet="Obra" />
-            <End Role="DetalleExposicion" EntitySet="DetalleExposicion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Entrada_Sede" Association="MuseoModel.FK_Entrada_Sede">
-            <End Role="Sede" EntitySet="Sede" />
-            <End Role="Entrada" EntitySet="Entrada" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Exposicion_Sede" Association="MuseoModel.FK_Exposicion_Sede">
-            <End Role="Sede" EntitySet="Sede" />
-            <End Role="Exposicion" EntitySet="Exposicion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReservaVisita_Sede" Association="MuseoModel.FK_ReservaVisita_Sede">
-            <End Role="Sede" EntitySet="Sede" />
-            <End Role="ReservaVisita" EntitySet="ReservaVisita" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tarifa_Sede" Association="MuseoModel.FK_Tarifa_Sede">
-            <End Role="Sede" EntitySet="Sede" />
-            <End Role="Tarifa" EntitySet="Tarifa" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tarifa_TipoEntrada" Association="MuseoModel.FK_Tarifa_TipoEntrada">
-            <End Role="TipoEntrada" EntitySet="TipoEntrada" />
-            <End Role="Tarifa" EntitySet="Tarifa" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tarifa_TipoVisita" Association="MuseoModel.FK_Tarifa_TipoVisita">
-            <End Role="TipoVisita" EntitySet="TipoVisita" />
-            <End Role="Tarifa" EntitySet="Tarifa" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="DetalleExposicion">
           <Key>
             <PropertyRef Name="Id" />
@@ -299,8 +274,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdExposicion" Type="Int32" Nullable="false" />
           <Property Name="IdObra" Type="Int32" />
-          <NavigationProperty Name="Exposicion" Relationship="MuseoModel.FK_DetalleExposicion_Exposicion" FromRole="DetalleExposicion" ToRole="Exposicion" />
-          <NavigationProperty Name="Obra" Relationship="MuseoModel.FK_DetalleExposicion_Obraa" FromRole="DetalleExposicion" ToRole="Obra" />
+          <NavigationProperty Name="Exposicion" Relationship="Self.FK_DetalleExposicion_Exposicion" FromRole="DetalleExposicion" ToRole="Exposicion" />
+          <NavigationProperty Name="Obra" Relationship="Self.FK_DetalleExposicion_Obraa" FromRole="DetalleExposicion" ToRole="Obra" />
         </EntityType>
         <EntityType Name="Entrada">
           <Key>
@@ -312,7 +287,9 @@
           <Property Name="Monto" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Numero" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="IdSede" Type="Int32" />
-          <NavigationProperty Name="Sede" Relationship="MuseoModel.FK_Entrada_Sede" FromRole="Entrada" ToRole="Sede" />
+          <Property Name="IdTarifa" Type="Int32" />
+          <NavigationProperty Name="Sede" Relationship="Self.FK_Entrada_Sede" FromRole="Entrada" ToRole="Sede" />
+          <NavigationProperty Name="Tarifa" Relationship="Self.FK_Entrada_Tarifa" FromRole="Entrada" ToRole="Tarifa" />
         </EntityType>
         <EntityType Name="Exposicion">
           <Key>
@@ -327,8 +304,8 @@
           <Property Name="HoraCierra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="IdSede" Type="Int32" />
-          <NavigationProperty Name="DetalleExposicion" Relationship="MuseoModel.FK_DetalleExposicion_Exposicion" FromRole="Exposicion" ToRole="DetalleExposicion" />
-          <NavigationProperty Name="Sede" Relationship="MuseoModel.FK_Exposicion_Sede" FromRole="Exposicion" ToRole="Sede" />
+          <NavigationProperty Name="DetalleExposicion" Relationship="Self.FK_DetalleExposicion_Exposicion" FromRole="Exposicion" ToRole="DetalleExposicion" />
+          <NavigationProperty Name="Sede" Relationship="Self.FK_Exposicion_Sede" FromRole="Exposicion" ToRole="Sede" />
         </EntityType>
         <EntityType Name="Obra">
           <Key>
@@ -346,7 +323,7 @@
           <Property Name="NombreObra" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Peso" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Valuacion" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="DetalleExposicion" Relationship="MuseoModel.FK_DetalleExposicion_Obraa" FromRole="Obra" ToRole="DetalleExposicion" />
+          <NavigationProperty Name="DetalleExposicion" Relationship="Self.FK_DetalleExposicion_Obraa" FromRole="Obra" ToRole="DetalleExposicion" />
         </EntityType>
         <EntityType Name="ReservaVisita">
           <Key>
@@ -362,7 +339,7 @@
           <Property Name="HoraInicioReal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NumeroReserva" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdSede" Type="Int32" />
-          <NavigationProperty Name="Sede" Relationship="MuseoModel.FK_ReservaVisita_Sede" FromRole="ReservaVisita" ToRole="Sede" />
+          <NavigationProperty Name="Sede" Relationship="Self.FK_ReservaVisita_Sede" FromRole="ReservaVisita" ToRole="Sede" />
         </EntityType>
         <EntityType Name="Sede">
           <Key>
@@ -372,10 +349,10 @@
           <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="CantMaxPorGuia" Type="Int32" />
           <Property Name="CantMaximaVisitantes" Type="Int32" />
-          <NavigationProperty Name="Entrada" Relationship="MuseoModel.FK_Entrada_Sede" FromRole="Sede" ToRole="Entrada" />
-          <NavigationProperty Name="Exposicion" Relationship="MuseoModel.FK_Exposicion_Sede" FromRole="Sede" ToRole="Exposicion" />
-          <NavigationProperty Name="ReservaVisita" Relationship="MuseoModel.FK_ReservaVisita_Sede" FromRole="Sede" ToRole="ReservaVisita" />
-          <NavigationProperty Name="Tarifa" Relationship="MuseoModel.FK_Tarifa_Sede" FromRole="Sede" ToRole="Tarifa" />
+          <NavigationProperty Name="Entrada" Relationship="Self.FK_Entrada_Sede" FromRole="Sede" ToRole="Entrada" />
+          <NavigationProperty Name="Exposicion" Relationship="Self.FK_Exposicion_Sede" FromRole="Sede" ToRole="Exposicion" />
+          <NavigationProperty Name="ReservaVisita" Relationship="Self.FK_ReservaVisita_Sede" FromRole="Sede" ToRole="ReservaVisita" />
+          <NavigationProperty Name="Tarifa" Relationship="Self.FK_Tarifa_Sede" FromRole="Sede" ToRole="Tarifa" />
         </EntityType>
         <EntityType Name="Tarifa">
           <Key>
@@ -389,9 +366,10 @@
           <Property Name="IdSede" Type="Int32" />
           <Property Name="IdTipoEntrada" Type="Int32" />
           <Property Name="IdTipoVisita" Type="Int32" />
-          <NavigationProperty Name="Sede" Relationship="MuseoModel.FK_Tarifa_Sede" FromRole="Tarifa" ToRole="Sede" />
-          <NavigationProperty Name="TipoEntrada" Relationship="MuseoModel.FK_Tarifa_TipoEntrada" FromRole="Tarifa" ToRole="TipoEntrada" />
-          <NavigationProperty Name="TipoVisita" Relationship="MuseoModel.FK_Tarifa_TipoVisita" FromRole="Tarifa" ToRole="TipoVisita" />
+          <NavigationProperty Name="Entrada" Relationship="Self.FK_Entrada_Tarifa" FromRole="Tarifa" ToRole="Entrada" />
+          <NavigationProperty Name="Sede" Relationship="Self.FK_Tarifa_Sede" FromRole="Tarifa" ToRole="Sede" />
+          <NavigationProperty Name="TipoEntrada" Relationship="Self.FK_Tarifa_TipoEntrada" FromRole="Tarifa" ToRole="TipoEntrada" />
+          <NavigationProperty Name="TipoVisita" Relationship="Self.FK_Tarifa_TipoVisita" FromRole="Tarifa" ToRole="TipoVisita" />
         </EntityType>
         <EntityType Name="TipoEntrada">
           <Key>
@@ -399,7 +377,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Tarifa" Relationship="MuseoModel.FK_Tarifa_TipoEntrada" FromRole="TipoEntrada" ToRole="Tarifa" />
+          <NavigationProperty Name="Tarifa" Relationship="Self.FK_Tarifa_TipoEntrada" FromRole="TipoEntrada" ToRole="Tarifa" />
         </EntityType>
         <EntityType Name="TipoVisita">
           <Key>
@@ -407,11 +385,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Tarifa" Relationship="MuseoModel.FK_Tarifa_TipoVisita" FromRole="TipoVisita" ToRole="Tarifa" />
+          <NavigationProperty Name="Tarifa" Relationship="Self.FK_Tarifa_TipoVisita" FromRole="TipoVisita" ToRole="Tarifa" />
         </EntityType>
         <Association Name="FK_DetalleExposicion_Exposicion">
-          <End Type="MuseoModel.Exposicion" Role="Exposicion" Multiplicity="1" />
-          <End Type="MuseoModel.DetalleExposicion" Role="DetalleExposicion" Multiplicity="*" />
+          <End Role="Exposicion" Type="Self.Exposicion" Multiplicity="1" />
+          <End Role="DetalleExposicion" Type="Self.DetalleExposicion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Exposicion">
               <PropertyRef Name="Id" />
@@ -422,8 +400,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DetalleExposicion_Obraa">
-          <End Type="MuseoModel.Obra" Role="Obra" Multiplicity="0..1" />
-          <End Type="MuseoModel.DetalleExposicion" Role="DetalleExposicion" Multiplicity="*" />
+          <End Role="Obra" Type="Self.Obra" Multiplicity="0..1" />
+          <End Role="DetalleExposicion" Type="Self.DetalleExposicion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Obra">
               <PropertyRef Name="Id" />
@@ -434,8 +412,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Entrada_Sede">
-          <End Type="MuseoModel.Sede" Role="Sede" Multiplicity="0..1" />
-          <End Type="MuseoModel.Entrada" Role="Entrada" Multiplicity="*" />
+          <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+          <End Role="Entrada" Type="Self.Entrada" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sede">
               <PropertyRef Name="Id" />
@@ -445,9 +423,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Entrada_Tarifa">
+          <End Role="Tarifa" Type="Self.Tarifa" Multiplicity="0..1" />
+          <End Role="Entrada" Type="Self.Entrada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tarifa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entrada">
+              <PropertyRef Name="IdTarifa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Exposicion_Sede">
-          <End Type="MuseoModel.Sede" Role="Sede" Multiplicity="0..1" />
-          <End Type="MuseoModel.Exposicion" Role="Exposicion" Multiplicity="*" />
+          <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+          <End Role="Exposicion" Type="Self.Exposicion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sede">
               <PropertyRef Name="Id" />
@@ -458,8 +448,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ReservaVisita_Sede">
-          <End Type="MuseoModel.Sede" Role="Sede" Multiplicity="0..1" />
-          <End Type="MuseoModel.ReservaVisita" Role="ReservaVisita" Multiplicity="*" />
+          <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+          <End Role="ReservaVisita" Type="Self.ReservaVisita" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sede">
               <PropertyRef Name="Id" />
@@ -470,8 +460,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tarifa_Sede">
-          <End Type="MuseoModel.Sede" Role="Sede" Multiplicity="0..1" />
-          <End Type="MuseoModel.Tarifa" Role="Tarifa" Multiplicity="*" />
+          <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+          <End Role="Tarifa" Type="Self.Tarifa" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sede">
               <PropertyRef Name="Id" />
@@ -482,8 +472,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tarifa_TipoEntrada">
-          <End Type="MuseoModel.TipoEntrada" Role="TipoEntrada" Multiplicity="0..1" />
-          <End Type="MuseoModel.Tarifa" Role="Tarifa" Multiplicity="*" />
+          <End Role="TipoEntrada" Type="Self.TipoEntrada" Multiplicity="0..1" />
+          <End Role="Tarifa" Type="Self.Tarifa" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoEntrada">
               <PropertyRef Name="Id" />
@@ -494,8 +484,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tarifa_TipoVisita">
-          <End Type="MuseoModel.TipoVisita" Role="TipoVisita" Multiplicity="0..1" />
-          <End Type="MuseoModel.Tarifa" Role="Tarifa" Multiplicity="*" />
+          <End Role="TipoVisita" Type="Self.TipoVisita" Multiplicity="0..1" />
+          <End Role="Tarifa" Type="Self.Tarifa" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoVisita">
               <PropertyRef Name="Id" />
@@ -505,6 +495,53 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="MuseoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DetalleExposicion" EntityType="Self.DetalleExposicion" />
+          <EntitySet Name="Entrada" EntityType="Self.Entrada" />
+          <EntitySet Name="Exposicion" EntityType="Self.Exposicion" />
+          <EntitySet Name="Obra" EntityType="Self.Obra" />
+          <EntitySet Name="ReservaVisita" EntityType="Self.ReservaVisita" />
+          <EntitySet Name="Sede" EntityType="Self.Sede" />
+          <EntitySet Name="Tarifa" EntityType="Self.Tarifa" />
+          <EntitySet Name="TipoEntrada" EntityType="Self.TipoEntrada" />
+          <EntitySet Name="TipoVisita" EntityType="Self.TipoVisita" />
+          <AssociationSet Name="FK_DetalleExposicion_Exposicion" Association="Self.FK_DetalleExposicion_Exposicion">
+            <End Role="Exposicion" EntitySet="Exposicion" />
+            <End Role="DetalleExposicion" EntitySet="DetalleExposicion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleExposicion_Obraa" Association="Self.FK_DetalleExposicion_Obraa">
+            <End Role="Obra" EntitySet="Obra" />
+            <End Role="DetalleExposicion" EntitySet="DetalleExposicion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entrada_Sede" Association="Self.FK_Entrada_Sede">
+            <End Role="Sede" EntitySet="Sede" />
+            <End Role="Entrada" EntitySet="Entrada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entrada_Tarifa" Association="Self.FK_Entrada_Tarifa">
+            <End Role="Tarifa" EntitySet="Tarifa" />
+            <End Role="Entrada" EntitySet="Entrada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exposicion_Sede" Association="Self.FK_Exposicion_Sede">
+            <End Role="Sede" EntitySet="Sede" />
+            <End Role="Exposicion" EntitySet="Exposicion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservaVisita_Sede" Association="Self.FK_ReservaVisita_Sede">
+            <End Role="Sede" EntitySet="Sede" />
+            <End Role="ReservaVisita" EntitySet="ReservaVisita" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarifa_Sede" Association="Self.FK_Tarifa_Sede">
+            <End Role="Sede" EntitySet="Sede" />
+            <End Role="Tarifa" EntitySet="Tarifa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarifa_TipoEntrada" Association="Self.FK_Tarifa_TipoEntrada">
+            <End Role="TipoEntrada" EntitySet="TipoEntrada" />
+            <End Role="Tarifa" EntitySet="Tarifa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarifa_TipoVisita" Association="Self.FK_Tarifa_TipoVisita">
+            <End Role="TipoVisita" EntitySet="TipoVisita" />
+            <End Role="Tarifa" EntitySet="Tarifa" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -514,110 +551,111 @@
           <EntitySetMapping Name="DetalleExposicion">
             <EntityTypeMapping TypeName="MuseoModel.DetalleExposicion">
               <MappingFragment StoreEntitySet="DetalleExposicion">
-                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
-                <ScalarProperty Name="IdExposicion" ColumnName="IdExposicion" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdExposicion" ColumnName="IdExposicion" />
+                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Entrada">
             <EntityTypeMapping TypeName="MuseoModel.Entrada">
               <MappingFragment StoreEntitySet="Entrada">
-                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
-                <ScalarProperty Name="Numero" ColumnName="Numero" />
-                <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="HoraVenta" ColumnName="HoraVenta" />
-                <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
+                <ScalarProperty Name="HoraVenta" ColumnName="HoraVenta" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
+                <ScalarProperty Name="IdTarifa" ColumnName="IdTarifa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Exposicion">
             <EntityTypeMapping TypeName="MuseoModel.Exposicion">
               <MappingFragment StoreEntitySet="Exposicion">
-                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="HoraCierra" ColumnName="HoraCierra" />
-                <ScalarProperty Name="HoraApertura" ColumnName="HoraApertura" />
-                <ScalarProperty Name="FechaInicioReplanificacion" ColumnName="FechaInicioReplanificacion" />
-                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-                <ScalarProperty Name="FechaFinReplanificacion" ColumnName="FechaFinReplanificacion" />
-                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="FechaFinReplanificacion" ColumnName="FechaFinReplanificacion" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaInicioReplanificacion" ColumnName="FechaInicioReplanificacion" />
+                <ScalarProperty Name="HoraApertura" ColumnName="HoraApertura" />
+                <ScalarProperty Name="HoraCierra" ColumnName="HoraCierra" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Obra">
             <EntityTypeMapping TypeName="MuseoModel.Obra">
               <MappingFragment StoreEntitySet="Obra">
-                <ScalarProperty Name="Valuacion" ColumnName="Valuacion" />
-                <ScalarProperty Name="Peso" ColumnName="Peso" />
-                <ScalarProperty Name="NombreObra" ColumnName="NombreObra" />
-                <ScalarProperty Name="FechaPrimeroIngreso" ColumnName="FechaPrimeroIngreso" />
-                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-                <ScalarProperty Name="DuracionResumida" ColumnName="DuracionResumida" />
-                <ScalarProperty Name="DuracionExtendida" ColumnName="DuracionExtendida" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="CodigoSensor" ColumnName="CodigoSensor" />
-                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
-                <ScalarProperty Name="Alto" ColumnName="Alto" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Alto" ColumnName="Alto" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="CodigoSensor" ColumnName="CodigoSensor" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="DuracionExtendida" ColumnName="DuracionExtendida" />
+                <ScalarProperty Name="DuracionResumida" ColumnName="DuracionResumida" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaPrimeroIngreso" ColumnName="FechaPrimeroIngreso" />
+                <ScalarProperty Name="NombreObra" ColumnName="NombreObra" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Valuacion" ColumnName="Valuacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReservaVisita">
             <EntityTypeMapping TypeName="MuseoModel.ReservaVisita">
               <MappingFragment StoreEntitySet="ReservaVisita">
-                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
-                <ScalarProperty Name="NumeroReserva" ColumnName="NumeroReserva" />
-                <ScalarProperty Name="HoraInicioReal" ColumnName="HoraInicioReal" />
-                <ScalarProperty Name="HoraFinReal" ColumnName="HoraFinReal" />
-                <ScalarProperty Name="FechaHoraReserva" ColumnName="FechaHoraReserva" />
-                <ScalarProperty Name="FechaHoraCreacion" ColumnName="FechaHoraCreacion" />
-                <ScalarProperty Name="DuracionEstimada" ColumnName="DuracionEstimada" />
-                <ScalarProperty Name="CantidadDeAlumnosAConfirmar" ColumnName="CantidadDeAlumnosAConfirmar" />
-                <ScalarProperty Name="CantidadDeAlumnos" ColumnName="CantidadDeAlumnos" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CantidadDeAlumnos" ColumnName="CantidadDeAlumnos" />
+                <ScalarProperty Name="CantidadDeAlumnosAConfirmar" ColumnName="CantidadDeAlumnosAConfirmar" />
+                <ScalarProperty Name="DuracionEstimada" ColumnName="DuracionEstimada" />
+                <ScalarProperty Name="FechaHoraCreacion" ColumnName="FechaHoraCreacion" />
+                <ScalarProperty Name="FechaHoraReserva" ColumnName="FechaHoraReserva" />
+                <ScalarProperty Name="HoraFinReal" ColumnName="HoraFinReal" />
+                <ScalarProperty Name="HoraInicioReal" ColumnName="HoraInicioReal" />
+                <ScalarProperty Name="NumeroReserva" ColumnName="NumeroReserva" />
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sede">
             <EntityTypeMapping TypeName="MuseoModel.Sede">
               <MappingFragment StoreEntitySet="Sede">
-                <ScalarProperty Name="CantMaximaVisitantes" ColumnName="CantMaximaVisitantes" />
-                <ScalarProperty Name="CantMaxPorGuia" ColumnName="CantMaxPorGuia" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CantMaxPorGuia" ColumnName="CantMaxPorGuia" />
+                <ScalarProperty Name="CantMaximaVisitantes" ColumnName="CantMaximaVisitantes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tarifa">
             <EntityTypeMapping TypeName="MuseoModel.Tarifa">
               <MappingFragment StoreEntitySet="Tarifa">
-                <ScalarProperty Name="IdTipoVisita" ColumnName="IdTipoVisita" />
-                <ScalarProperty Name="IdTipoEntrada" ColumnName="IdTipoEntrada" />
-                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
-                <ScalarProperty Name="MontoAdicionalGuia" ColumnName="MontoAdicionalGuia" />
-                <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="FechaFinVigencia" ColumnName="FechaFinVigencia" />
-                <ScalarProperty Name="FechaInicioVigencia" ColumnName="FechaInicioVigencia" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FechaInicioVigencia" ColumnName="FechaInicioVigencia" />
+                <ScalarProperty Name="FechaFinVigencia" ColumnName="FechaFinVigencia" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="MontoAdicionalGuia" ColumnName="MontoAdicionalGuia" />
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
+                <ScalarProperty Name="IdTipoEntrada" ColumnName="IdTipoEntrada" />
+                <ScalarProperty Name="IdTipoVisita" ColumnName="IdTipoVisita" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipoEntrada">
             <EntityTypeMapping TypeName="MuseoModel.TipoEntrada">
               <MappingFragment StoreEntitySet="TipoEntrada">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipoVisita">
             <EntityTypeMapping TypeName="MuseoModel.TipoVisita">
               <MappingFragment StoreEntitySet="TipoVisita">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

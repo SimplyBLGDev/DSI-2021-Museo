@@ -8,6 +8,7 @@ namespace DSI2021.Frontend {
     public partial class PantallaRegistroVenta : Form {
 
         Hora duracionVisita;
+        int cantidadEntradas;
 
         public PantallaRegistroVenta() {
             InitializeComponent();
@@ -16,13 +17,15 @@ namespace DSI2021.Frontend {
         }
 
         public void Abrir(Form formulario) {
-            formulario.ShowDialog();
+           if( formulario.ShowDialog() == DialogResult.OK)
+            {
+                GestorRegistroVenta.RegistrarEntradas(cantidadEntradas, GetTarifaSeleccionada());
+            }
             
             Hide();
         }
 
         private void btnGenerar(object sender, EventArgs e) {
-            int cantidadEntradas;
             int montoPorEntrada;
             int montoTotal;
 

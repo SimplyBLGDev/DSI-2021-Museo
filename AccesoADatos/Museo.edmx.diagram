@@ -4,24 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7026a238bda64fe58479fba4ef179173" Name="Diagram1">
-        <EntityTypeShape EntityType="MuseoModel.DetalleExposicion" Width="1.5" PointX="5.25" PointY="10.875" />
-        <EntityTypeShape EntityType="MuseoModel.Entrada" Width="1.5" PointX="3" PointY="15.125" />
-        <EntityTypeShape EntityType="MuseoModel.Exposicion" Width="1.5" PointX="3" PointY="7.375" />
-        <EntityTypeShape EntityType="MuseoModel.Obra" Width="1.5" PointX="3" PointY="19.125" />
-        <EntityTypeShape EntityType="MuseoModel.ReservaVisita" Width="1.5" PointX="3" PointY="11.25" />
-        <EntityTypeShape EntityType="MuseoModel.Sede" Width="1.5" PointX="0.75" PointY="7.25" />
-        <EntityTypeShape EntityType="MuseoModel.Tarifa" Width="1.5" PointX="6" PointY="7" />
-        <EntityTypeShape EntityType="MuseoModel.TipoEntrada" Width="1.5" PointX="3.75" PointY="1.875" />
-        <EntityTypeShape EntityType="MuseoModel.TipoVisita" Width="1.5" PointX="3.75" PointY="4.625" />
-        <AssociationConnector Association="MuseoModel.FK_DetalleExposicion_Exposicion" />
-        <AssociationConnector Association="MuseoModel.FK_DetalleExposicion_Obraa" />
-        <AssociationConnector Association="MuseoModel.FK_Entrada_Sede" />
-        <AssociationConnector Association="MuseoModel.FK_Exposicion_Sede" />
-        <AssociationConnector Association="MuseoModel.FK_ReservaVisita_Sede" />
-        <AssociationConnector Association="MuseoModel.FK_Tarifa_Sede" />
-        <AssociationConnector Association="MuseoModel.FK_Tarifa_TipoEntrada" />
-        <AssociationConnector Association="MuseoModel.FK_Tarifa_TipoVisita" />
+      <Diagram DiagramId="4d4b37f20b2e4dfabf78cf0d33f22987" Name="Diagram1">
+        <EntityTypeShape EntityType="MuseoModel.DetalleExposicion" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuseoModel.Entrada" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuseoModel.Exposicion" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuseoModel.Obra" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuseoModel.ReservaVisita" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuseoModel.Sede" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuseoModel.Tarifa" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuseoModel.TipoEntrada" Width="1.5" PointX="3.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuseoModel.TipoVisita" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="MuseoModel.FK_DetalleExposicion_Exposicion" ManuallyRouted="false" />
+        <AssociationConnector Association="MuseoModel.FK_DetalleExposicion_Obraa" ManuallyRouted="false" />
+        <AssociationConnector Association="MuseoModel.FK_Entrada_Sede" ManuallyRouted="false" />
+        <AssociationConnector Association="MuseoModel.FK_Entrada_Tarifa" ManuallyRouted="false" />
+        <AssociationConnector Association="MuseoModel.FK_Exposicion_Sede" ManuallyRouted="false" />
+        <AssociationConnector Association="MuseoModel.FK_ReservaVisita_Sede" ManuallyRouted="false" />
+        <AssociationConnector Association="MuseoModel.FK_Tarifa_Sede" ManuallyRouted="false" />
+        <AssociationConnector Association="MuseoModel.FK_Tarifa_TipoEntrada" ManuallyRouted="false" />
+        <AssociationConnector Association="MuseoModel.FK_Tarifa_TipoVisita" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

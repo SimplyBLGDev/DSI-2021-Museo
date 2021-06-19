@@ -22,6 +22,8 @@ namespace Servicios.Business {
 			nuevo.fechaInicioVigencia = tarifaBd.FechaInicioVigencia;
 			nuevo.tipoEntrada = tarifaBd.TipoEntrada;
 			nuevo.tipoVisita = tarifaBd.TipoVisita;
+			nuevo.monto = 10;
+			nuevo.montoAdicionalGuia = 10;
 			return nuevo;
 		}
 

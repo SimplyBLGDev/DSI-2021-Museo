@@ -32,7 +32,22 @@ namespace Servicios
         {
             var listadoEntradas = _repositorioEntrada.Listar().Select(x => (Entrada)x).ToList();
             var ultimaEntrada = listadoEntradas[listadoEntradas.Count - 1];
-            return ultimaEntrada.Id + 1;
+            return ultimaEntrada.GetNumero() + 1;
+        }
+
+
+        public bool RegistraEntrada(Entrada nuevaEntrada)
+        {
+            var entidadDb = new AccesoADatos.Entrada();
+            entidadDb.FechaVenta = DateTime.Now;
+            entidadDb.Monto = nuevaEntrada.GetMonto();
+            entidadDb.Numero = nuevaEntrada.GetNumero().ToString();
+            entidadDb.IdSede = nuevaEntrada.GetSede().Id;
+            entidadDb.IdTarifa = nuevaEntrada.GetTarifa().GetNumeroTarifa();
+
+            _repositorioEntrada.GuardarEntidad(entidadDb);
+
+            return true;
         }
 
 

@@ -20,7 +20,9 @@ namespace AccesoADatos
         public Nullable<decimal> Monto { get; set; }
         public string Numero { get; set; }
         public Nullable<int> IdSede { get; set; }
+        public Nullable<int> IdTarifa { get; set; }
     
         public virtual Sede Sede { get; set; }
+        public virtual Tarifa Tarifa { get; set; }
     }
 }

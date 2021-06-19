@@ -54,5 +54,29 @@ namespace Servicios.Business {
 
 			return superarCantidadMaxima;
 		}
+
+		public static void RegistrarEntradas(int cantidadEntradas, Tarifa tarifaSeleccionada)
+		{
+			var numeroDeEntrada = _servicioEntrada.ObtenerUlTimoNumero(sedeActual);
+
+			for (int i = 0; i < cantidadEntradas; i++)
+			{
+				var nuevaEntrada = new Entrada();
+				nuevaEntrada.SetTarifa(tarifaSeleccionada);
+				nuevaEntrada.SetSede(sedeActual);
+				nuevaEntrada.SetNumero(numeroDeEntrada);
+				_servicioEntrada.RegistraEntrada(nuevaEntrada);
+				numeroDeEntrada++;
+			}
+
+			ActualizarCantidadDeVisitantes();
+		}
+
+		public static void ActualizarCantidadDeVisitantes()
+		{
+			var cantidadConfirmados = _servicioReservas.CantidadDeAlumnosConfirmados(sedeActual);
+			var cantidadReservas = _servicioEntrada.CantidadEntradasReservadas(sedeActual);
+			cantidadEntradas = (cantidadConfirmados + cantidadReservas);
+		}
 	}
 }

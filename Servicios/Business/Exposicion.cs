@@ -28,7 +28,7 @@ namespace Servicios.Business {
 		}
 
 
-
+		//Todo:cambiar el calculo para que busque en los detalles 
 		public Hora CalcularDuracionVisita() {
 			return horaCierre - horaApertura;
 		}
