@@ -1,4 +1,5 @@
 ﻿
+using AccesoADatos.Repositorios;
 using Servicios.Business;
 using Servicios.Data;
 using System;
@@ -11,12 +12,12 @@ namespace Servicios
 
         private readonly ServicioTarifa _servicioTarifa = new ServicioTarifa();
         private readonly ServicioExposiciones _servicioExposiciones = new ServicioExposiciones();
+        private readonly RepositorioSede _sedeRepositorio = new RepositorioSede();
         private readonly MapperEntidades mapper = new MapperEntidades();
 
         public List<Tarifa> MostrarTarifasExistentes(Sede sede)
         {
 
-           // var sedeBase = mapper.Mapper.Map<AccesoADatos.Sede>(sede);
             var listadoTarifas = mapper.Mapper.Map<List<Tarifa>>(_servicioTarifa.MostrarTarifasExistentes(sede));
             List<Tarifa> listadoTarifasVigentes = new List<Tarifa>();
 
@@ -36,6 +37,13 @@ namespace Servicios
             }
 
             return duracionVisita;
+        }
+
+        public Sede MostrarInformacionSede(Sede sede)
+        {
+           
+            return (Sede)_sedeRepositorio.BuscarSede(new AccesoADatos.Sede { Id = 1 });
+
         }
     }
 }

@@ -21,7 +21,6 @@ namespace Servicios
 
         public List<Tarifa> ListarTarifas()
         {
-
             var listadoTarifas = _repositorioTarifa.Listar().Select(x => (Tarifa)x).ToList();
             return listadoTarifas;
         }

@@ -28,6 +28,14 @@ namespace DSI2021.Frontend {
 
             cantidadEntradas = GetCantidadEntradas();
 
+            //validacion que no supera el cupo de entradas
+            if (GestorRegistroVenta.ValidarCantidadMaxima(cantidadEntradas))
+            {
+                MessageBox.Show("Supero al cantidad maxima de visitanres");
+                return;
+            }
+
+
             Tarifa tarifaSeleccionada = GetTarifaSeleccionada();
             if (tarifaSeleccionada == null) {
                 MessageBox.Show("Seleccione una tarifa.");
