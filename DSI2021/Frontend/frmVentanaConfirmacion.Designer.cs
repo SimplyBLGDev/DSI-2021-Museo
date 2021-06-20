@@ -44,10 +44,12 @@ namespace DSI2021.Frontend
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConfirmar
@@ -59,7 +61,7 @@ namespace DSI2021.Frontend
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(182, 192);
+            this.btnConfirmar.Location = new System.Drawing.Point(170, 148);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(119, 43);
@@ -77,7 +79,7 @@ namespace DSI2021.Frontend
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(57, 192);
+            this.btnCancelar.Location = new System.Drawing.Point(45, 148);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(119, 42);
@@ -125,7 +127,7 @@ namespace DSI2021.Frontend
             this.lblMontoTotal.AutoSize = true;
             this.lblMontoTotal.BackColor = System.Drawing.Color.White;
             this.lblMontoTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoTotal.Location = new System.Drawing.Point(256, 99);
+            this.lblMontoTotal.Location = new System.Drawing.Point(257, 99);
             this.lblMontoTotal.Name = "lblMontoTotal";
             this.lblMontoTotal.Size = new System.Drawing.Size(41, 20);
             this.lblMontoTotal.TabIndex = 12;
@@ -138,7 +140,7 @@ namespace DSI2021.Frontend
             this.lblMontoXEntrada.AutoSize = true;
             this.lblMontoXEntrada.BackColor = System.Drawing.Color.White;
             this.lblMontoXEntrada.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoXEntrada.Location = new System.Drawing.Point(260, 55);
+            this.lblMontoXEntrada.Location = new System.Drawing.Point(261, 55);
             this.lblMontoXEntrada.Name = "lblMontoXEntrada";
             this.lblMontoXEntrada.Size = new System.Drawing.Size(33, 20);
             this.lblMontoXEntrada.TabIndex = 13;
@@ -151,7 +153,7 @@ namespace DSI2021.Frontend
             this.lblCantidadEntradas.AutoSize = true;
             this.lblCantidadEntradas.BackColor = System.Drawing.Color.White;
             this.lblCantidadEntradas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadEntradas.Location = new System.Drawing.Point(276, 21);
+            this.lblCantidadEntradas.Location = new System.Drawing.Point(277, 21);
             this.lblCantidadEntradas.Name = "lblCantidadEntradas";
             this.lblCantidadEntradas.Size = new System.Drawing.Size(17, 20);
             this.lblCantidadEntradas.TabIndex = 14;
@@ -160,20 +162,21 @@ namespace DSI2021.Frontend
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(134)))));
+            this.panel1.Controls.Add(this.panel7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 45);
+            this.panel1.Size = new System.Drawing.Size(358, 52);
             this.panel1.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Location = new System.Drawing.Point(9, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(182, 25);
             this.label3.TabIndex = 17;
@@ -219,25 +222,34 @@ namespace DSI2021.Frontend
             this.panel6.Controls.Add(this.lblMontoXEntrada);
             this.panel6.Controls.Add(this.lblCantidadEntradas);
             this.panel6.Controls.Add(this.lblMontoTotal);
+            this.panel6.Controls.Add(this.btnConfirmar);
+            this.panel6.Controls.Add(this.btnCancelar);
             this.panel6.Controls.Add(this.lblTituloMontoTotal);
             this.panel6.Controls.Add(this.lblMonto);
             this.panel6.Controls.Add(this.lblTituloCantidadEntradas);
-            this.panel6.Location = new System.Drawing.Point(8, 44);
+            this.panel6.Location = new System.Drawing.Point(12, 44);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(333, 194);
+            this.panel6.Size = new System.Drawing.Size(334, 199);
             this.panel6.TabIndex = 20;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Location = new System.Drawing.Point(12, 12);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(334, 40);
+            this.panel7.TabIndex = 18;
             // 
             // frmVentanaConfirmacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(350, 247);
+            this.ClientSize = new System.Drawing.Size(358, 255);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.panel6);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -246,11 +258,12 @@ namespace DSI2021.Frontend
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVentanaConfirmacion";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -272,5 +285,6 @@ namespace DSI2021.Frontend
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
     }
 }

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frontend\frmEntradasActuales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\frmEntradasActuales.Designer.cs">
+      <DependentUpon>frmEntradasActuales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\frmVentanaConfirmacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frontend\frmEntradasActuales.resx">
+      <DependentUpon>frmEntradasActuales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\frmVentanaConfirmacion.resx">
       <DependentUpon>frmVentanaConfirmacion.cs</DependentUpon>
     </EmbeddedResource>
