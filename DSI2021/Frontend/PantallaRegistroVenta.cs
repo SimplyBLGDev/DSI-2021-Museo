@@ -26,8 +26,8 @@ namespace DSI2021.Frontend {
         }
 
         private void btnGenerar(object sender, EventArgs e) {
-            int montoPorEntrada;
-            int montoTotal;
+            decimal montoPorEntrada;
+            decimal montoTotal;
 
             cantidadEntradas = GetCantidadEntradas();
 

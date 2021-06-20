@@ -12,7 +12,6 @@ namespace Servicios
     {
 
         private readonly RepositorioExposicion _repositorioExposicion = new RepositorioExposicion();
-        private readonly MapperEntidades mapper = new MapperEntidades();
 
         public List<Exposicion> MostrarExposicionesVigentesPorSede(Sede sede)
         {

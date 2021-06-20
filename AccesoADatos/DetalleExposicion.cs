@@ -17,6 +17,7 @@ namespace AccesoADatos
         public int Id { get; set; }
         public int IdExposicion { get; set; }
         public Nullable<int> IdObra { get; set; }
+        public string LugarAsignado { get; set; }
     
         public virtual Exposicion Exposicion { get; set; }
         public virtual Obra Obra { get; set; }

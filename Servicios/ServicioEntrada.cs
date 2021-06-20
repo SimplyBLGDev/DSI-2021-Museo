@@ -11,7 +11,6 @@ namespace Servicios
     public class ServicioEntrada
     {
         private readonly RepositorioEntrada _repositorioEntrada = new RepositorioEntrada();
-        private readonly MapperEntidades mapper = new MapperEntidades();
 
         public int CantidadEntradasReservadas(Sede sede)
         {

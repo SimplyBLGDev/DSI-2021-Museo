@@ -5,7 +5,7 @@ namespace DSI2021.Frontend
 {
     public partial class frmVentanaConfirmacion : Form
     {
-        public frmVentanaConfirmacion(int cantidadEntradas, int montoPorEntrada, int montoTotal)
+        public frmVentanaConfirmacion(int cantidadEntradas, decimal montoPorEntrada, decimal montoTotal)
         {
             InitializeComponent();
 

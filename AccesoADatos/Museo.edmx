@@ -12,6 +12,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdExposicion" Type="int" Nullable="false" />
           <Property Name="IdObra" Type="int" />
+          <Property Name="LugarAsignado" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Entrada">
           <Key>
@@ -274,6 +275,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdExposicion" Type="Int32" Nullable="false" />
           <Property Name="IdObra" Type="Int32" />
+          <Property Name="LugarAsignado" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Exposicion" Relationship="Self.FK_DetalleExposicion_Exposicion" FromRole="DetalleExposicion" ToRole="Exposicion" />
           <NavigationProperty Name="Obra" Relationship="Self.FK_DetalleExposicion_Obraa" FromRole="DetalleExposicion" ToRole="Obra" />
         </EntityType>
@@ -554,6 +556,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdExposicion" ColumnName="IdExposicion" />
                 <ScalarProperty Name="IdObra" ColumnName="IdObra" />
+                <ScalarProperty Name="LugarAsignado" ColumnName="LugarAsignado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
