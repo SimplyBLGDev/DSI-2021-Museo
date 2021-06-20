@@ -17,7 +17,10 @@ namespace Servicios.Data {
 
 		public string ToString() {
 			string hh = Math.Floor(seconds / 3600f).ToString();
-			string mm = Math.Floor(seconds / 60f).ToString();
+
+			
+			string mm = Math.Floor((seconds / 60f)%60).ToString();
+
 			string ss = (seconds % 60).ToString();
 
 			if (hh.Length == 1) hh = "0" + hh;
