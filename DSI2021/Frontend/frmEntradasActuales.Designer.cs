@@ -32,7 +32,7 @@ namespace DSI2021.Frontend
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tablaTarifas = new System.Windows.Forms.DataGridView();
+            this.tablaEntradas = new System.Windows.Forms.DataGridView();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +43,7 @@ namespace DSI2021.Frontend
             this.lblCupoMaximo = new System.Windows.Forms.Label();
             this.lblCupoActual = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaTarifas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaEntradas)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -51,7 +51,7 @@ namespace DSI2021.Frontend
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.tablaTarifas);
+            this.groupBox1.Controls.Add(this.tablaEntradas);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 51);
             this.groupBox1.Name = "groupBox1";
@@ -60,19 +60,19 @@ namespace DSI2021.Frontend
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Entradas Actuales";
             // 
-            // tablaTarifas
+            // tablaEntradas
             // 
-            this.tablaTarifas.AllowUserToAddRows = false;
-            this.tablaTarifas.AllowUserToDeleteRows = false;
-            this.tablaTarifas.AllowUserToResizeColumns = false;
-            this.tablaTarifas.AllowUserToResizeRows = false;
-            this.tablaTarifas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tablaEntradas.AllowUserToAddRows = false;
+            this.tablaEntradas.AllowUserToDeleteRows = false;
+            this.tablaEntradas.AllowUserToResizeColumns = false;
+            this.tablaEntradas.AllowUserToResizeRows = false;
+            this.tablaEntradas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tablaTarifas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tablaTarifas.BackgroundColor = System.Drawing.Color.White;
-            this.tablaTarifas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tablaTarifas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tablaEntradas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaEntradas.BackgroundColor = System.Drawing.Color.White;
+            this.tablaEntradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tablaEntradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -80,34 +80,34 @@ namespace DSI2021.Frontend
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaTarifas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.tablaTarifas.ColumnHeadersHeight = 50;
-            this.tablaTarifas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.tablaTarifas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.tablaEntradas.ColumnHeadersHeight = 50;
+            this.tablaEntradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tablaEntradas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Numero,
             this.HoraVenta,
             this.Monto,
             this.TipoEntrada,
             this.TipoVisita});
-            this.tablaTarifas.EnableHeadersVisualStyles = false;
-            this.tablaTarifas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(51)))));
-            this.tablaTarifas.Location = new System.Drawing.Point(16, 26);
-            this.tablaTarifas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tablaTarifas.MultiSelect = false;
-            this.tablaTarifas.Name = "tablaTarifas";
-            this.tablaTarifas.ReadOnly = true;
-            this.tablaTarifas.RowHeadersVisible = false;
+            this.tablaEntradas.EnableHeadersVisualStyles = false;
+            this.tablaEntradas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(51)))));
+            this.tablaEntradas.Location = new System.Drawing.Point(16, 26);
+            this.tablaEntradas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tablaEntradas.MultiSelect = false;
+            this.tablaEntradas.Name = "tablaEntradas";
+            this.tablaEntradas.ReadOnly = true;
+            this.tablaEntradas.RowHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(49)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(78)))), ((int)(((byte)(102)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.tablaTarifas.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.tablaTarifas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tablaTarifas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaTarifas.Size = new System.Drawing.Size(726, 438);
-            this.tablaTarifas.TabIndex = 44;
+            this.tablaEntradas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.tablaEntradas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tablaEntradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaEntradas.Size = new System.Drawing.Size(726, 438);
+            this.tablaEntradas.TabIndex = 44;
             // 
             // Numero
             // 
@@ -197,8 +197,9 @@ namespace DSI2021.Frontend
             this.Name = "frmEntradasActuales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEntradasActuales";
+            this.Load += new System.EventHandler(this.frmEntradasActuales_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tablaTarifas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaEntradas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,7 +208,7 @@ namespace DSI2021.Frontend
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView tablaTarifas;
+        private System.Windows.Forms.DataGridView tablaEntradas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;

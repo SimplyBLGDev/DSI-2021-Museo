@@ -81,7 +81,6 @@ namespace DSI2021 {
         private void btnEntradasActuales_Click(object sender, EventArgs e)
         {
             openChildForm(new frmEntradasActuales());
-            hideSubmenu();
         }
 
         private void btnSalir(object sender, EventArgs e)
@@ -89,5 +88,6 @@ namespace DSI2021 {
             hideSubmenu();
             GestorRegistroVenta.mensajeCerrar();
         }
+
     }
 }

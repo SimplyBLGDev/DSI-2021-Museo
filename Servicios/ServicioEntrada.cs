@@ -41,6 +41,7 @@ namespace Servicios
             entidadDb.FechaVenta = DateTime.Now;
             entidadDb.Monto = nuevaEntrada.GetMonto();
             entidadDb.Numero = nuevaEntrada.GetNumero().ToString();
+            //var tarifa = nuevaEntrada.GetTarifa()
             entidadDb.IdSede = nuevaEntrada.GetSede().Id;
             entidadDb.IdTarifa = nuevaEntrada.GetTarifa().GetNumeroTarifa();
 
@@ -49,6 +50,13 @@ namespace Servicios
             return true;
         }
 
+        public List<Entrada> ListarEntradasDelDia(Sede sede)
+        {
+            var listadoEntradas = _repositorioEntrada.ListarEntradasPorSede(sede.Id).Select(x => (Entrada)x)
+                .Where( y=> y.EsFecheActual(DateTime.Now)).ToList();
+          
+            return listadoEntradas;
+        }
 
 
     }
