@@ -16,7 +16,7 @@ namespace AccesoADatos
     public partial class MuseoEntities : DbContext
     {
         public MuseoEntities()
-            : base("metadata=res://*/Museo.csdl|res://*/Museo.ssdl|res://*/Museo.msl;provider=System.Data.SqlClient;provider connection string='Data Source=SQL5053.site4now.net;Initial Catalog=db_a76465_dsimuseo;User Id=db_a76465_dsimuseo_admin;Password=Dsimuseo2021'")
+            : base("metadata = res://*/Museo.csdl|res://*/Museo.ssdl|res://*/Museo.msl;provider=System.Data.SqlClient;provider connection string='Data Source=SQL5053.site4now.net;Initial Catalog=db_a76465_dsimuseo;User Id=db_a76465_dsimuseo_admin;Password=Dsimuseo2021'")
         {
         }
     

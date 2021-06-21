@@ -9,7 +9,6 @@ namespace Servicios
 {
     public class ServicioTarifa
     {
-        private readonly MapperEntidades mapper = new MapperEntidades();
         private readonly RepositorioTarifa _repositorioTarifa = new RepositorioTarifa();
 
         public List<Tarifa> MostrarTarifasExistentes(Sede sede)

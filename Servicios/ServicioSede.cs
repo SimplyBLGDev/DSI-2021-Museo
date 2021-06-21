@@ -13,17 +13,13 @@ namespace Servicios
         private readonly ServicioTarifa _servicioTarifa = new ServicioTarifa();
         private readonly ServicioExposiciones _servicioExposiciones = new ServicioExposiciones();
         private readonly RepositorioSede _sedeRepositorio = new RepositorioSede();
-        private readonly MapperEntidades mapper = new MapperEntidades();
 
         public List<Tarifa> MostrarTarifasExistentes(Sede sede)
         {
 
-            var listadoTarifas = mapper.Mapper.Map<List<Tarifa>>(_servicioTarifa.MostrarTarifasExistentes(sede));
-            List<Tarifa> listadoTarifasVigentes = new List<Tarifa>();
+            var listadoTarifas = _servicioTarifa.MostrarTarifasExistentes(sede);
 
-
-
-            return listadoTarifasVigentes;
+            return listadoTarifas;
         }
 
         public Hora MostrarDuracionDeVisita(Sede sede)

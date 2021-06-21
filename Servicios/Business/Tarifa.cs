@@ -8,8 +8,8 @@ namespace Servicios.Business {
 	public class Tarifa {
 		private DateTime? fechaInicioVigencia;
 		private DateTime? fechaFinVigencia;
-		private int monto;
-		private float montoAdicionalGuia;
+		private decimal monto;
+		private decimal montoAdicionalGuia;
 		private TipoVisita tipoVisita;
 		private TipoEntrada tipoEntrada;
 		private int Id;
@@ -22,8 +22,8 @@ namespace Servicios.Business {
 			nuevo.fechaInicioVigencia = tarifaBd.FechaInicioVigencia;
 			nuevo.tipoEntrada = tarifaBd.TipoEntrada;
 			nuevo.tipoVisita = tarifaBd.TipoVisita;
-			nuevo.monto = 10;
-			nuevo.montoAdicionalGuia = 10;
+			nuevo.monto = tarifaBd.Monto ?? 0;
+			nuevo.montoAdicionalGuia = tarifaBd.MontoAdicionalGuia ?? 0;
 			return nuevo;
 		}
 
@@ -37,11 +37,11 @@ namespace Servicios.Business {
 			return Id;
 		}
 
-		public int GetMonto() {
+		public decimal GetMonto() {
 			return monto;
 		}
 
-		public float GetMontoAdicional() {
+		public decimal GetMontoAdicional() {
 			return montoAdicionalGuia;
 		}
 

@@ -15,6 +15,8 @@ namespace Servicios.Business {
 		private Hora horaApertura;
 		private Hora horaCierre;
 
+		private List<DetalleExposicion> detalleExposicion { get; set; } = new List<DetalleExposicion>();
+
 
 		public static implicit operator Exposicion(AccesoADatos.Exposicion tarifaBd)
 		{
@@ -24,13 +26,22 @@ namespace Servicios.Business {
 			nuevo.fechaFin = tarifaBd.FechaFin;
 			nuevo.horaApertura = new Hora(int.Parse(tarifaBd.HoraApertura));
 			nuevo.horaCierre = new Hora(int.Parse(tarifaBd.HoraCierra));
+			nuevo.detalleExposicion = tarifaBd.DetalleExposicion.Select( x=> (DetalleExposicion)x).ToList();
 			return nuevo;
 		}
 
 
 		//Todo:cambiar el calculo para que busque en los detalles 
 		public Hora CalcularDuracionVisita() {
-			return horaCierre - horaApertura;
+
+			var duracionVisita = new Hora();
+
+			detalleExposicion.ForEach(x =>
+			{
+				duracionVisita = duracionVisita + x.DuracionVisita();
+			});
+
+			return duracionVisita;
 		}
 
 		public bool EsVigente(DateTime fecha) {

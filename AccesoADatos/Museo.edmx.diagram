@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4d4b37f20b2e4dfabf78cf0d33f22987" Name="Diagram1">
-        <EntityTypeShape EntityType="MuseoModel.DetalleExposicion" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+      <Diagram DiagramId="9af53b8341ca45a68eaa21ddee72eaf6" Name="Diagram1">
+        <EntityTypeShape EntityType="MuseoModel.DetalleExposicion" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MuseoModel.Entrada" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="MuseoModel.Exposicion" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MuseoModel.Obra" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />

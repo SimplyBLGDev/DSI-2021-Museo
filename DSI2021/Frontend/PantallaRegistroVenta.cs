@@ -12,7 +12,7 @@ namespace DSI2021.Frontend {
 
         public PantallaRegistroVenta() {
             InitializeComponent();
-            duracionVisita = GestorRegistroVenta.CalcularDuracionVisita();
+            duracionVisita = GestorRegistroVenta.CalcularDuracionVisitaCompleta();
             lblDuracionVisita.Text = duracionVisita.ToString();
         }
 
@@ -26,13 +26,13 @@ namespace DSI2021.Frontend {
         }
 
         private void btnGenerar(object sender, EventArgs e) {
-            int montoPorEntrada;
-            int montoTotal;
+            decimal montoPorEntrada;
+            decimal montoTotal;
 
             cantidadEntradas = GetCantidadEntradas();
 
             //validacion que no supera el cupo de entradas
-            if (GestorRegistroVenta.ValidarCantidadMaxima(cantidadEntradas))
+            if (GestorRegistroVenta.ValidarCantidadDeEntradas(cantidadEntradas))
             {
                 MessageBox.Show("Supero al cantidad maxima de visitanres");
                 return;
@@ -63,7 +63,7 @@ namespace DSI2021.Frontend {
         }
 
         private void PantallaRegistroVenta_Load(object sender, EventArgs e) {
-            List<Tarifa> tarifasValidas = GestorRegistroVenta.BuscarTarifasVigentes();
+            List<Tarifa> tarifasValidas = GestorRegistroVenta.MostrarTarifasExistentes();
             MostrarTarifas(tarifasValidas);
         }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Servicios.Business {
 	public static class GestorRegistroVenta {
@@ -25,15 +26,13 @@ namespace Servicios.Business {
 			tarifas = _servicioTarifa.MostrarTarifasExistentes(sedeActual);
 		}
 
-		public static Hora CalcularDuracionVisita() {
-			return _servicioSede.MostrarDuracionDeVisita(sedeActual);
-		}
-
-		public static DateTime GetFechaActual() {
+		public static DateTime GetFechaActual()
+		{
 			return DateTime.Now;
 		}
 
-		public static List<Tarifa> BuscarTarifasVigentes() {
+		public static List<Tarifa> MostrarTarifasExistentes()
+		{
 			List<Tarifa> tarifasValidas = new List<Tarifa>();
 
 			foreach (Tarifa tarifa in tarifas)
@@ -42,9 +41,11 @@ namespace Servicios.Business {
 
 			return tarifasValidas;
 		}
+		public static Hora CalcularDuracionVisitaCompleta() {
+			return _servicioSede.MostrarDuracionDeVisita(sedeActual);
+		}
 
-
-		public static bool ValidarCantidadMaxima(int cantidadEntradasUsuario)
+		public static bool ValidarCantidadDeEntradas(int cantidadEntradasUsuario)
 		{
 			var cantidadMaximaSede = sedeActual.GetCantidadMaximaVisitantes();
 			var cantidadConfirmados = _servicioReservas.CantidadDeAlumnosConfirmados(sedeActual);
@@ -77,6 +78,14 @@ namespace Servicios.Business {
 			var cantidadConfirmados = _servicioReservas.CantidadDeAlumnosConfirmados(sedeActual);
 			var cantidadReservas = _servicioEntrada.CantidadEntradasReservadas(sedeActual);
 			cantidadEntradas = (cantidadConfirmados + cantidadReservas);
+		}
+
+		public static void mensajeCerrar()
+        {
+			if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				Application.Exit();
+			}
 		}
 	}
 }

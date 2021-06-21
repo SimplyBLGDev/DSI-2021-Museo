@@ -75,7 +75,6 @@
     <Compile Include="Obra.cs">
       <DependentUpon>Museo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioBase.cs" />
     <Compile Include="Repositorios\RepositorioDetalleDeExposicion.cs" />
     <Compile Include="Repositorios\RepositorioObra.cs" />
@@ -127,6 +126,9 @@
       <DependentUpon>Museo.edmx</DependentUpon>
       <LastGenOutput>Museo.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
