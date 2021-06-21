@@ -24,7 +24,7 @@ namespace DSI2021.Frontend
 
             entradas.ForEach(entrada =>
             {
-                int newRowIx = tablaEntradas.Rows.Add(entrada.GetNumero(), entrada.GetFechaVenta().ToString("dd/MM/yyyy")
+                int newRowIx = tablaEntradas.Rows.Add(entrada.GetNumero(), entrada.GetFechaVenta().ToString("HH:mm")
                     , entrada.GetMonto(), entrada.GetTarifa().GetTipoEntrada().GetNombre(), entrada.GetTarifa().GetTipoVisita().GetNombre());
                 tablaEntradas.Rows[newRowIx].Tag = entrada;
             });

@@ -13,6 +13,16 @@ namespace Servicios
 
         private readonly RepositorioExposicion _repositorioExposicion = new RepositorioExposicion();
 
+
+        public List<Exposicion> MostrarExposicionesPorSede(Sede sede)
+        {
+            var exposiciones = _repositorioExposicion.ListarExposicionesPorSede(sede.Id);
+            var exposicionesBussiness = exposiciones.Select(x => (Exposicion)x).ToList();
+
+            return exposicionesBussiness;
+        }
+
+
         public List<Exposicion> MostrarExposicionesVigentesPorSede(Sede sede)
         {
             var exposiciones = _repositorioExposicion.ListarExposicionesPorSede(sede.Id);

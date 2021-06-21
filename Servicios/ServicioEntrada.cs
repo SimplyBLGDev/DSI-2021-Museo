@@ -27,7 +27,7 @@ namespace Servicios
             return cantidad;
         }
 
-        public int ObtenerUlTimoNumero(Sede sede)
+        public int CalcularUltimoNumero(Sede sede)
         {
             var listadoEntradas = _repositorioEntrada.Listar().Select(x => (Entrada)x).ToList();
             var ultimaEntrada = listadoEntradas[listadoEntradas.Count - 1];
@@ -41,7 +41,6 @@ namespace Servicios
             entidadDb.FechaVenta = DateTime.Now;
             entidadDb.Monto = nuevaEntrada.GetMonto();
             entidadDb.Numero = nuevaEntrada.GetNumero().ToString();
-            //var tarifa = nuevaEntrada.GetTarifa()
             entidadDb.IdSede = nuevaEntrada.GetSede().Id;
             entidadDb.IdTarifa = nuevaEntrada.GetTarifa().GetNumeroTarifa();
 

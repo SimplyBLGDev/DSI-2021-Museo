@@ -17,7 +17,7 @@ namespace DSI2021 {
 			InitializeComponent();
 
 			var servicio = new ServicioSede();
-            GestorRegistroVenta.Inicializar();
+            //GestorRegistroVenta.OpcionRegitrarVenta();
 		}
 
         private Form activeForm = null;
@@ -35,6 +35,11 @@ namespace DSI2021 {
             childForm.Show();
         }
 
+        /// <summary>
+        /// opcion registrar venta entrada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegistrarVentaEntradas_Click(object sender, EventArgs e)
         {
             openChildForm(new PantallaRegistroVenta());

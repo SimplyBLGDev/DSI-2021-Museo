@@ -18,5 +18,12 @@ namespace Servicios.Business {
 		public string GetNombre() {
 			return nombre;
 		}
+
+		public bool EsCompleta()
+		{
+			return nombre.Equals("Completa");
+		}
+
+
 	}
 }

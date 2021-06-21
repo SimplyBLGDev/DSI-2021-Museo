@@ -18,21 +18,7 @@ namespace Servicios
         {
 
             var listadoTarifas = _servicioTarifa.MostrarTarifasExistentes(sede);
-
             return listadoTarifas;
-        }
-
-        public Hora MostrarDuracionDeVisita(Sede sede)
-        {
-            Hora duracionVisita = new Hora(0);
-            var listadoDeExposiciones = _servicioExposiciones.MostrarExposicionesVigentesPorSede(sede);
-
-            foreach (var exposicion in listadoDeExposiciones)
-            {
-                duracionVisita = duracionVisita + exposicion.CalcularDuracionVisita();
-            }
-
-            return duracionVisita;
         }
 
         public Sede MostrarInformacionSede(Sede sede)
