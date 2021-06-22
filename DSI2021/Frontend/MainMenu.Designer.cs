@@ -393,7 +393,6 @@ namespace DSI2021 {
             this.button3.Text = "Consultar Venta de Entradas";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.btnEntradasActuales_Click);
             // 
             // btnRegistrarVentaEntradas
             // 

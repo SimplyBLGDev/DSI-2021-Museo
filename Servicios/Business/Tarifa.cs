@@ -30,6 +30,9 @@ namespace Servicios.Business
             return nuevo;
         }
 
+        //Patron Experto: se estaria cumpliendo este patron ya que la responsabilidad se encuentra
+        //en la clase que tiene los datos, es decir, ubicamos el comportamiento lo mas cerca posible de donde
+        //se encuentran los datos necesarios para que este se ejecute.
         public bool EsVigente(DateTime fecha)
         {
 

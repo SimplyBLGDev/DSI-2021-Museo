@@ -30,7 +30,6 @@ namespace Servicios.Business {
 			return nuevo;
 		}
 
-
 		public Hora CalcularDuracionVisita() {
 
 			var duracionVisita = new Hora();

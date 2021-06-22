@@ -2,6 +2,7 @@
 using Servicios.Data;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace DSI2021.Frontend
@@ -27,8 +28,8 @@ namespace DSI2021.Frontend
             {
                 if (GestorRegistroVenta.ValidarCantidadDeEntradas(cantidadEntradas))
                 {
-                    MessageBox.Show("Supero al cantidad maxima de visitanres");
-                    return;
+                    MessageBox.Show("Supero al cantidad máxima de visitantes", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                  
                 }
 
                 GestorRegistroVenta.ConfirmarVenta(cantidadEntradas, GetTarifaSeleccionada());
@@ -65,6 +66,7 @@ namespace DSI2021.Frontend
             return 0;
         }
 
+        
         private Tarifa GetTarifaSeleccionada()
         {
             return dgvTablaTarifas.SelectedRows[0]?.Tag as Tarifa;
@@ -72,6 +74,9 @@ namespace DSI2021.Frontend
 
         private void PantallaRegistroVenta_Load(object sender, EventArgs e)
         {
+            //Alta Cohesion: la pantalla llama directamente a el metodo opcionRegistrarVenta,
+            //en vez de llamar al de la Sede
+
             GestorRegistroVenta.OpcionRegitrarVenta();
             List<Tarifa> tarifasValidas = GestorRegistroVenta.MostrarTarifas();
             MostrarTarifas(tarifasValidas);
@@ -110,10 +115,11 @@ namespace DSI2021.Frontend
 
         }
 
-
         private void Imprimir()
         { 
         
         }
+
+       
     }
 }

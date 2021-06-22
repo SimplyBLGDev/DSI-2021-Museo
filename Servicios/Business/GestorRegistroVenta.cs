@@ -15,13 +15,15 @@ namespace Servicios.Business
         private static Sede sedeActual;
         private static List<Tarifa> tarifas;
 
-        
         private static ServicioSede _servicioSede = new ServicioSede();
         private static ServicioReservas _servicioReservas = new ServicioReservas();
         private static ServicioEntrada _servicioEntrada = new ServicioEntrada();
 
+        //Patron Controlador, al existir un objeto de fabricacion pura (tipo controlador) nos va a permitir
+        //mantener la separacion entre la capa de presentacion y la capa de logica de negocio.
 
-        //
+        //Patron Bajo Acomplamiento: el metodo opcionRegistrarVenta esta cumpliendo este patron ya que la
+        //unica relacion que tiene la clase boundary es con el gestor
         public static void OpcionRegitrarVenta()
         {
             sedeActual = _servicioSede.MostrarInformacionSede(new Sede { Id = 1 });
@@ -76,6 +78,9 @@ namespace Servicios.Business
         {
             for (int i = 0; i < cantidadEntradas; i++)
             {
+                //Patron Creador: el gestor cuenta con toda la informacion necesaria para inicializar
+                //la entidad nueva:Entrada
+
                 var nuevaEntrada = new Entrada();
                 nuevaEntrada.SetTarifa(tarifaSeleccionada);
                 nuevaEntrada.SetSede(sedeActual);
