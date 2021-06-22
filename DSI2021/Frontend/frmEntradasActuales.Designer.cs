@@ -108,6 +108,7 @@ namespace DSI2021.Frontend
             this.tablaEntradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tablaEntradas.Size = new System.Drawing.Size(726, 438);
             this.tablaEntradas.TabIndex = 44;
+            this.tablaEntradas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tablaEntradas_CellFormatting);
             // 
             // Numero
             // 

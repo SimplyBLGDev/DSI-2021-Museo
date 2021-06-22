@@ -63,7 +63,7 @@ namespace DSI2021.Frontend
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(166, 191);
+            this.btnConfirmar.Location = new System.Drawing.Point(162, 200);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(119, 43);
@@ -81,7 +81,7 @@ namespace DSI2021.Frontend
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(41, 191);
+            this.btnCancelar.Location = new System.Drawing.Point(37, 200);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(119, 42);
@@ -178,7 +178,7 @@ namespace DSI2021.Frontend
             this.panel7.Controls.Add(this.label3);
             this.panel7.Location = new System.Drawing.Point(12, 12);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(334, 40);
+            this.panel7.Size = new System.Drawing.Size(343, 40);
             this.panel7.TabIndex = 18;
             // 
             // label3

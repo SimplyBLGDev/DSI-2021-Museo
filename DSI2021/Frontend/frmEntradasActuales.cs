@@ -33,5 +33,9 @@ namespace DSI2021.Frontend
             lblCupoActual.Text = GestorRegistroVenta.MostrarCantidadDeVisitantes().ToString();
         }
 
+        private void tablaEntradas_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+        }
     }
 }
