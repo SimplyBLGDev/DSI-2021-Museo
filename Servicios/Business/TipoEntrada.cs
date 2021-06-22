@@ -20,5 +20,15 @@ namespace Servicios.Business {
 		public string GetNombre() {
 			return nombre;
 		}
+
+		public bool EsPublicoGeneral()
+		{
+			return nombre.Equals("Publico General");
+		}
+
+		public bool EsDiscapacitado()
+		{
+			return nombre.Equals("Discapacitado");
+		}
 	}
 }

@@ -23,6 +23,7 @@ namespace Servicios.Business {
 			nuevo._numero = int.Parse(entidadBd.Numero);
 			nuevo.Id = entidadBd.Id;
 			nuevo.sede = entidadBd.Sede;
+			nuevo._tarifa = entidadBd.Tarifa;
 			return nuevo;
 		}
 		
@@ -44,6 +45,11 @@ namespace Servicios.Business {
 		public int GetNumero()
 		{
 			return _numero;
+		}
+
+		public DateTime GetFechaVenta()
+		{
+			return fechaVenta;
 		}
 
 
@@ -72,6 +78,11 @@ namespace Servicios.Business {
 		public void SetTarifa(Tarifa tarifa)
 		{
 			_tarifa = tarifa;
+		}
+
+		public bool EsFecheActual(DateTime fecha)
+		{
+			return fechaVenta.Date == fecha.Date;
 		}
 	}
 }

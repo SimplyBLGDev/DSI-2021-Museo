@@ -38,18 +38,20 @@ namespace DSI2021.Frontend
             this.lblMontoXEntrada = new System.Windows.Forms.Label();
             this.lblCantidadEntradas = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblMontoGuia = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConfirmar
@@ -61,7 +63,7 @@ namespace DSI2021.Frontend
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(170, 148);
+            this.btnConfirmar.Location = new System.Drawing.Point(166, 191);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(119, 43);
@@ -79,7 +81,7 @@ namespace DSI2021.Frontend
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(45, 148);
+            this.btnCancelar.Location = new System.Drawing.Point(41, 191);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(119, 42);
@@ -115,7 +117,7 @@ namespace DSI2021.Frontend
             this.lblTituloMontoTotal.AutoSize = true;
             this.lblTituloMontoTotal.BackColor = System.Drawing.Color.White;
             this.lblTituloMontoTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloMontoTotal.Location = new System.Drawing.Point(33, 99);
+            this.lblTituloMontoTotal.Location = new System.Drawing.Point(29, 147);
             this.lblTituloMontoTotal.Name = "lblTituloMontoTotal";
             this.lblTituloMontoTotal.Size = new System.Drawing.Size(93, 20);
             this.lblTituloMontoTotal.TabIndex = 11;
@@ -127,7 +129,7 @@ namespace DSI2021.Frontend
             this.lblMontoTotal.AutoSize = true;
             this.lblMontoTotal.BackColor = System.Drawing.Color.White;
             this.lblMontoTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoTotal.Location = new System.Drawing.Point(257, 99);
+            this.lblMontoTotal.Location = new System.Drawing.Point(262, 147);
             this.lblMontoTotal.Name = "lblMontoTotal";
             this.lblMontoTotal.Size = new System.Drawing.Size(41, 20);
             this.lblMontoTotal.TabIndex = 12;
@@ -140,7 +142,7 @@ namespace DSI2021.Frontend
             this.lblMontoXEntrada.AutoSize = true;
             this.lblMontoXEntrada.BackColor = System.Drawing.Color.White;
             this.lblMontoXEntrada.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoXEntrada.Location = new System.Drawing.Point(261, 55);
+            this.lblMontoXEntrada.Location = new System.Drawing.Point(270, 55);
             this.lblMontoXEntrada.Name = "lblMontoXEntrada";
             this.lblMontoXEntrada.Size = new System.Drawing.Size(33, 20);
             this.lblMontoXEntrada.TabIndex = 13;
@@ -153,7 +155,7 @@ namespace DSI2021.Frontend
             this.lblCantidadEntradas.AutoSize = true;
             this.lblCantidadEntradas.BackColor = System.Drawing.Color.White;
             this.lblCantidadEntradas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadEntradas.Location = new System.Drawing.Point(277, 21);
+            this.lblCantidadEntradas.Location = new System.Drawing.Point(286, 21);
             this.lblCantidadEntradas.Name = "lblCantidadEntradas";
             this.lblCantidadEntradas.Size = new System.Drawing.Size(17, 20);
             this.lblCantidadEntradas.TabIndex = 14;
@@ -167,8 +169,17 @@ namespace DSI2021.Frontend
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(358, 52);
+            this.panel1.Size = new System.Drawing.Size(367, 52);
             this.panel1.TabIndex = 13;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Location = new System.Drawing.Point(12, 12);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(334, 40);
+            this.panel7.TabIndex = 18;
             // 
             // label3
             // 
@@ -186,7 +197,7 @@ namespace DSI2021.Frontend
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(26, 130);
+            this.panel2.Location = new System.Drawing.Point(14, 132);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(305, 2);
             this.panel2.TabIndex = 17;
@@ -203,7 +214,7 @@ namespace DSI2021.Frontend
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(26, 173);
+            this.panel4.Location = new System.Drawing.Point(14, 182);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(305, 2);
             this.panel4.TabIndex = 19;
@@ -219,6 +230,10 @@ namespace DSI2021.Frontend
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.lblMontoGuia);
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.panel2);
+            this.panel6.Controls.Add(this.panel4);
             this.panel6.Controls.Add(this.lblMontoXEntrada);
             this.panel6.Controls.Add(this.lblCantidadEntradas);
             this.panel6.Controls.Add(this.lblMontoTotal);
@@ -229,26 +244,39 @@ namespace DSI2021.Frontend
             this.panel6.Controls.Add(this.lblTituloCantidadEntradas);
             this.panel6.Location = new System.Drawing.Point(12, 44);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(334, 199);
+            this.panel6.Size = new System.Drawing.Size(343, 257);
             this.panel6.TabIndex = 20;
             // 
-            // panel7
+            // lblMontoGuia
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(12, 12);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(334, 40);
-            this.panel7.TabIndex = 18;
+            this.lblMontoGuia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMontoGuia.AutoSize = true;
+            this.lblMontoGuia.BackColor = System.Drawing.Color.White;
+            this.lblMontoGuia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoGuia.Location = new System.Drawing.Point(269, 92);
+            this.lblMontoGuia.Name = "lblMontoGuia";
+            this.lblMontoGuia.Size = new System.Drawing.Size(33, 20);
+            this.lblMontoGuia.TabIndex = 21;
+            this.lblMontoGuia.Text = "500";
+            this.lblMontoGuia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(32, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 20);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Monto Por Guia:";
             // 
             // frmVentanaConfirmacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(358, 255);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(367, 313);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel6);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,12 +286,12 @@ namespace DSI2021.Frontend
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVentanaConfirmacion";
             this.panel1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -286,5 +314,7 @@ namespace DSI2021.Frontend
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label lblMontoGuia;
+        private System.Windows.Forms.Label label2;
     }
 }

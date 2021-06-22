@@ -27,7 +27,7 @@ namespace Servicios
             return cantidad;
         }
 
-        public int ObtenerUlTimoNumero(Sede sede)
+        public int CalcularUltimoNumero(Sede sede)
         {
             var listadoEntradas = _repositorioEntrada.Listar().Select(x => (Entrada)x).ToList();
             var ultimaEntrada = listadoEntradas[listadoEntradas.Count - 1];
@@ -49,6 +49,13 @@ namespace Servicios
             return true;
         }
 
+        public List<Entrada> ListarEntradasDelDia(Sede sede)
+        {
+            var listadoEntradas = _repositorioEntrada.ListarEntradasPorSede(sede.Id).Select(x => (Entrada)x)
+                .Where( y=> y.EsFecheActual(DateTime.Now)).ToList();
+          
+            return listadoEntradas;
+        }
 
 
     }
