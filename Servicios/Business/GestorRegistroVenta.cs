@@ -34,14 +34,14 @@ namespace Base.Business {
 		}
 
 		public static Hora CalcularDuracionVisitaCompleta(Tarifa tarifaSeleccionada) {
-			return tarifaSeleccionada.GetTipoVisita().EsCompleta() ? sedeActual.MostrarDuracionDeVisita() :
+			return tarifaSeleccionada.GetTipoVisita().EsCompleta() ? sedeActual.CalcularDuracionVisita() :
 			new Hora(0);
 		}
 
 		public static bool ValidarCantidadDeEntradas(int cantidadEntradasUsuario) {
-			int cantidadMaximaSede = sedeActual.GetCantidadMaximaVisitantes();
 			int cantidadConfirmados = Persistencia.FetchCantidadAlumnosConfirmados(sedeActual);
 			int cantidadReservas = Persistencia.FetchCantidadEntradasReservadas(sedeActual);
+			int cantidadMaximaSede = sedeActual.GetCantidadMaximaVisitantes();
 
 			bool superarCantidadMaxima = (cantidadConfirmados + cantidadReservas + cantidadEntradasUsuario) > cantidadMaximaSede;
 

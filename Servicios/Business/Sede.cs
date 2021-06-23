@@ -50,7 +50,7 @@ namespace Base.Business {
 			return tarifasValidas;
 		}
 
-		public Hora MostrarDuracionDeVisita() {
+		public Hora CalcularDuracionVisita() {
 			Hora duracionVisita = new Hora(0);
 			List<Exposicion> exposiciones = Persistencia.FetchExposicionesPorSede(this);
 

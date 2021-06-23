@@ -22,6 +22,7 @@ namespace DSI2021.Frontend
 				}
 
 				GestorRegistroVenta.ConfirmarVenta(cantidadEntradas, GetTarifaSeleccionada());
+				ImprimirEntradas();
 			}
 
 			Hide();
@@ -50,7 +51,6 @@ namespace DSI2021.Frontend
 
 			return 0;
 		}
-
 		
 		private Tarifa GetTarifaSeleccionada() {
 			return dgvTablaTarifas.SelectedRows[0]?.Tag as Tarifa;
@@ -81,15 +81,27 @@ namespace DSI2021.Frontend
 		}
 
 		private void dgvTablaTarifas_RowEnter(object sender, DataGridViewCellEventArgs e) {
-			var tarifaSeleccionda = (Tarifa)dgvTablaTarifas.Rows[e.RowIndex].Tag;
+			TomarSeleccionTarifa(e.RowIndex);
+		}
+
+		private void TomarSeleccionTarifa(int rowIndex) {
+			var tarifaSeleccionda = (Tarifa)dgvTablaTarifas.Rows[rowIndex].Tag;
 
 			if (tarifaSeleccionda != null) {
 				duracionVisita = GestorRegistroVenta.CalcularDuracionVisitaCompleta(tarifaSeleccionda);
-				lblDuracionVisita.Text = duracionVisita.ToString();
-
-				lblDuracionVisita.Visible = duracionVisita.seconds > 0;
-				lblTextoDuracionVisita.Visible = duracionVisita.seconds > 0;
+				MostrarDuracionVisita(duracionVisita);
 			}
+		}
+
+		private void MostrarDuracionVisita(Hora duracionVisita) {
+			lblDuracionVisita.Text = duracionVisita.ToString();
+
+			lblDuracionVisita.Visible = duracionVisita.seconds > 0;
+			lblTextoDuracionVisita.Visible = duracionVisita.seconds > 0;
+		}
+
+		private void ImprimirEntradas() {
+			MessageBox.Show("Imprimir entradas");
 		}
 	}
 }
