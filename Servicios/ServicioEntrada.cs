@@ -1,25 +1,18 @@
-﻿
-using AccesoADatos.Repositorios;
+﻿using AccesoADatos.Repositorios;
 using Servicios.Business;
-using Servicios.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Servicios
-{
-    public class ServicioEntrada
-    {
+namespace Servicios {
+    public class ServicioEntrada {
         private readonly RepositorioEntrada _repositorioEntrada = new RepositorioEntrada();
 
-        public int CantidadEntradasReservadas(Sede sede)
-        {
+        public int CantidadEntradasReservadas(Sede sede) {
             var listadoEntradas = _repositorioEntrada.ListarEntradasPorSede(sede.Id).Select(x => (Entrada)x).ToList();
             var cantidad = 0;
-            foreach (var entrada in listadoEntradas)
-            {
-                if (entrada.ValidarHorarioEntrada(DateTime.Now))
-                {
+            foreach (var entrada in listadoEntradas) {
+                if (entrada.ValidarHorarioEntrada(DateTime.Now)) {
                     cantidad++;
                 }
             }
@@ -27,16 +20,13 @@ namespace Servicios
             return cantidad;
         }
 
-        public int CalcularUltimoNumero(Sede sede)
-        {
+        public int CalcularUltimoNumero(Sede sede) {
             var listadoEntradas = _repositorioEntrada.Listar().Select(x => (Entrada)x).ToList();
             var ultimaEntrada = listadoEntradas[listadoEntradas.Count - 1];
             return ultimaEntrada.GetNumero() + 1;
         }
 
-
-        public bool RegistraEntrada(Entrada nuevaEntrada)
-        {
+        public bool RegistraEntrada(Entrada nuevaEntrada) {
             var entidadDb = new AccesoADatos.Entrada();
             entidadDb.FechaVenta = DateTime.Now;
             entidadDb.Monto = nuevaEntrada.GetMonto();
@@ -49,8 +39,7 @@ namespace Servicios
             return true;
         }
 
-        public List<Entrada> ListarEntradasDelDia(Sede sede)
-        {
+        public List<Entrada> ListarEntradasDelDia(Sede sede) {
             var listadoEntradas = _repositorioEntrada.ListarEntradasPorSede(sede.Id).Select(x => (Entrada)x)
                 .Where( y=> y.EsFecheActual(DateTime.Now)).ToList();
           

@@ -1,10 +1,7 @@
-﻿
-using Servicios.Data;
+﻿using Servicios.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Business {
 	public class Exposicion {
@@ -18,9 +15,8 @@ namespace Servicios.Business {
 		private List<DetalleExposicion> detalleExposicion { get; set; } = new List<DetalleExposicion>();
 
 
-		public static implicit operator Exposicion(AccesoADatos.Exposicion tarifaBd)
-		{
-			var nuevo = new Exposicion();
+		public static implicit operator Exposicion(AccesoADatos.Exposicion tarifaBd) {
+			Exposicion nuevo = new Exposicion();
 			nuevo.nombre = tarifaBd.Nombre;
 			nuevo.fechaInicio = tarifaBd.FechaInicio;
 			nuevo.fechaFin = tarifaBd.FechaFin;
@@ -34,8 +30,7 @@ namespace Servicios.Business {
 
 			var duracionVisita = new Hora();
 
-			detalleExposicion.ForEach(x =>
-			{
+			detalleExposicion.ForEach(x => {
 				duracionVisita = duracionVisita + x.DuracionVisita();
 			});
 

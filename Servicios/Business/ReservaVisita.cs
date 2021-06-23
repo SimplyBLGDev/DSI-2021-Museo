@@ -1,8 +1,7 @@
 ﻿using Servicios.Data;
 using System;
 
-namespace Servicios.Business
-{
+namespace Servicios.Business {
 	public class ReservaVisita {
 		
 		private Sede sede;
@@ -15,18 +14,13 @@ namespace Servicios.Business
 		private Hora horaInicioReal;
 		private int numeroReserva;
 
-
-
-		public static implicit operator ReservaVisita(AccesoADatos.ReservaVisita tarifaBd)
-		{
-			var nuevo = new ReservaVisita();
+		public static implicit operator ReservaVisita(AccesoADatos.ReservaVisita tarifaBd) {
+			ReservaVisita nuevo = new ReservaVisita();
 			nuevo.cantidadAlumnos = tarifaBd.CantidadDeAlumnos ?? 0;
 			nuevo.cantidadAlumnosConfirmada = tarifaBd.CantidadDeAlumnosAConfirmar ?? 0;
 			nuevo.duracionEstimada = new Hora(string.IsNullOrEmpty(tarifaBd.DuracionEstimada) ? 0 : int.Parse(tarifaBd.DuracionEstimada));
 			nuevo.fechaHoraCreacion = tarifaBd.FechaHoraCreacion;
 			nuevo.fechaHoraReserva = tarifaBd.FechaHoraReserva;
-			//nuevo.horaFinReal = new Hora(int.Parse(tarifaBd.HoraFinReal));
-			//nuevo.horaInicioReal = new Hora(int.Parse(tarifaBd.HoraInicioReal));
 			return nuevo;
 		}
 
@@ -39,12 +33,8 @@ namespace Servicios.Business
 			return fecha.Date == fechaHoraReserva.Value.Date;
 		}
 
-		public int GetCantidadDeAlumnosConfirmada()
-		{
+		public int GetCantidadDeAlumnosConfirmada() {
 			return cantidadAlumnosConfirmada;
 		}
-
-
-		
 	}
 }

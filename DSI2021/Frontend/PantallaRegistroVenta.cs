@@ -7,27 +7,18 @@ using System.Windows.Forms;
 
 namespace DSI2021.Frontend
 {
-    public partial class PantallaRegistroVenta : Form
-    {
+    public partial class PantallaRegistroVenta : Form {
 
         Hora duracionVisita;
         int cantidadEntradas;
 
-        /// <summary>
-        /// habilitar pantalla
-        /// </summary>
-        public PantallaRegistroVenta()
-        {
+        public PantallaRegistroVenta() {
             InitializeComponent();
-            //
         }
 
-        public void Abrir(Form formulario)
-        {
-            if (formulario.ShowDialog() == DialogResult.OK)
-            {
-                if (GestorRegistroVenta.ValidarCantidadDeEntradas(cantidadEntradas))
-                {
+        public void Abrir(Form formulario) {
+            if (formulario.ShowDialog() == DialogResult.OK) {
+                if (GestorRegistroVenta.ValidarCantidadDeEntradas(cantidadEntradas)) {
                     MessageBox.Show("Supero al cantidad máxima de visitantes", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -38,16 +29,14 @@ namespace DSI2021.Frontend
             Hide();
         }
 
-        private void btnGenerar(object sender, EventArgs e)
-        {
+        private void btnGenerar(object sender, EventArgs e) {
             decimal montoPorEntrada;
             decimal montoTotal;
 
             cantidadEntradas = GetCantidadEntradas();
 
             Tarifa tarifaSeleccionada = GetTarifaSeleccionada();
-            if (tarifaSeleccionada == null)
-            {
+            if (tarifaSeleccionada == null) {
                 MessageBox.Show("Seleccione una tarifa.");
                 return;
             }
@@ -57,8 +46,7 @@ namespace DSI2021.Frontend
             Abrir(new frmVentanaConfirmacion(cantidadEntradas, montoPorEntrada, montoTotal, (tarifaSeleccionada.GetMontoAdicional() * cantidadEntradas)));
         }
 
-        private int GetCantidadEntradas()
-        {
+        private int GetCantidadEntradas() {
             int cantEntradas = 0;
             if (int.TryParse(txtCantEntradas.Text, out cantEntradas))
                 return cantEntradas;
@@ -67,28 +55,21 @@ namespace DSI2021.Frontend
         }
 
         
-        private Tarifa GetTarifaSeleccionada()
-        {
+        private Tarifa GetTarifaSeleccionada() {
             return dgvTablaTarifas.SelectedRows[0]?.Tag as Tarifa;
         }
 
-        private void PantallaRegistroVenta_Load(object sender, EventArgs e)
-        {
-            //Alta Cohesion: la pantalla llama directamente a el metodo opcionRegistrarVenta,
-            //en vez de llamar al de la Sede
+        private void PantallaRegistroVenta_Load(object sender, EventArgs e) {
+            // Alta Cohesion: la pantalla llama directamente a el metodo opcionRegistrarVenta,
+            // en vez de llamar al de la Sede
 
             GestorRegistroVenta.OpcionRegitrarVenta();
             List<Tarifa> tarifasValidas = GestorRegistroVenta.MostrarTarifas();
             MostrarTarifas(tarifasValidas);
-
-            //duracionVisita = GestorRegistroVenta.CalcularDuracionVisitaCompleta();
-            //lblDuracionVisita.Text = duracionVisita.ToString();
         }
 
-        public void MostrarTarifas(List<Tarifa> tarifas)
-        {
-            foreach (Tarifa tarifa in tarifas)
-            {
+        public void MostrarTarifas(List<Tarifa> tarifas) {
+            foreach (Tarifa tarifa in tarifas) {
                 var id = tarifa.GetNumeroTarifa();
                 var monto = tarifa.GetMonto();
                 var montoAdicional = tarifa.GetMontoAdicional();
@@ -100,12 +81,10 @@ namespace DSI2021.Frontend
             }
         }
 
-        private void dgvTablaTarifas_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
+        private void dgvTablaTarifas_RowEnter(object sender, DataGridViewCellEventArgs e) {
             var tarifaSeleccionda = (Tarifa)dgvTablaTarifas.Rows[e.RowIndex].Tag;
 
-            if (tarifaSeleccionda != null)
-            {
+            if (tarifaSeleccionda != null) {
                 duracionVisita = GestorRegistroVenta.CalcularDuracionVisitaCompleta(tarifaSeleccionda);
                 lblDuracionVisita.Text = duracionVisita.ToString();
 
@@ -114,12 +93,5 @@ namespace DSI2021.Frontend
             }
 
         }
-
-        private void Imprimir()
-        { 
-        
-        }
-
-       
     }
 }

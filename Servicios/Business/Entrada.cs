@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Business {
 	public class Entrada {
@@ -14,9 +10,7 @@ namespace Servicios.Business {
 
 		private Tarifa _tarifa;
 
-
-		public static implicit operator Entrada(AccesoADatos.Entrada entidadBd)
-		{
+		public static implicit operator Entrada(AccesoADatos.Entrada entidadBd) {
 			var nuevo = new Entrada();
 			nuevo.fechaVenta = entidadBd.FechaVenta.Value;
 			nuevo._monto = entidadBd.Monto ?? 0;
@@ -32,8 +26,7 @@ namespace Servicios.Business {
 			return sede;
 		}
 
-		public void SetSede(Sede sedeActual)
-		{
+		public void SetSede(Sede sedeActual) {
 			sede = sedeActual;
 		}
 
@@ -42,46 +35,36 @@ namespace Servicios.Business {
 		}
 
 
-		public int GetNumero()
-		{
+		public int GetNumero() {
 			return _numero;
 		}
 
-		public DateTime GetFechaVenta()
-		{
+		public DateTime GetFechaVenta() {
 			return fechaVenta;
 		}
 
 
-		public void SetNumero(int numeroEntrada)
-		{
+		public void SetNumero(int numeroEntrada) {
 			_numero = numeroEntrada;
 		}
 
-		public decimal GetMonto()
-		{
-			
-				return _monto;
-			
+		public decimal GetMonto() {			
+			return _monto;
 		}
-		public void SetMonto( decimal monto)
-		{
+
+		public void SetMonto( decimal monto) {
 			_monto = monto;
-
 		}
 
-		public Tarifa GetTarifa()
-		{
+		public Tarifa GetTarifa() {
 			return _tarifa;
 		}
 
-		public void SetTarifa(Tarifa tarifa)
-		{
+		public void SetTarifa(Tarifa tarifa) {
 			_tarifa = tarifa;
 		}
 
-		public bool EsFecheActual(DateTime fecha)
-		{
+		public bool EsFecheActual(DateTime fecha) {
 			return fechaVenta.Date == fecha.Date;
 		}
 	}

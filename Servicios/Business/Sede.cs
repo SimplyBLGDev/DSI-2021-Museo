@@ -22,33 +22,26 @@ namespace Servicios.Business {
 		private List<Exposicion> _exposiciones { get; set; }
 
 
-		public int CantMaxPorGuia
-		{
-			get
-			{
+		public int CantMaxPorGuia {
+			get {
 				return _cantMaxPorGuia;
 			}
-			set
-			{
+			set {
 				_cantMaxPorGuia = value;
 			}
 		}
 
-		public string Nombre
-		{
-			get
-			{
+		public string Nombre {
+			get {
 				return _nombre;
 			}
-			set
-			{
+			set {
 				_nombre = value;
 			}
 		}
 
-		public static implicit operator Sede(AccesoADatos.Sede tarifaBd)
-		{
-			var nuevo = new Sede();
+		public static implicit operator Sede(AccesoADatos.Sede tarifaBd) {
+			Sede nuevo = new Sede();
 			nuevo.Id = tarifaBd.Id;
 			nuevo._cantidadMaximaVisitantes = tarifaBd.CantMaximaVisitantes ?? 0;
 			nuevo._cantMaxPorGuia = tarifaBd.CantMaxPorGuia ?? 0;
@@ -56,16 +49,12 @@ namespace Servicios.Business {
 			return nuevo;
 		}
 
-
-
-		public int GetCantidadMaximaVisitantes()
-		{
+		public int GetCantidadMaximaVisitantes() {
 			return _cantidadMaximaVisitantes;
 		}
 
-		//patron experto
-        public List<Tarifa> MostrarTarifasExistentes()
-		{
+		// Patron experto
+        public List<Tarifa> MostrarTarifasExistentes() {
 			var tarifas =_servicioSede.MostrarTarifasExistentes(this);
 			List<Tarifa> tarifasValidas = new List<Tarifa>();
 
@@ -76,21 +65,15 @@ namespace Servicios.Business {
 			return tarifasValidas;
 		}
 
-		public Hora MostrarDuracionDeVisita(Sede sede)
-		{
+		public Hora MostrarDuracionDeVisita(Sede sede) {
 			Hora duracionVisita = new Hora(0);
 			_exposiciones = _servicioExposiciones.MostrarExposicionesPorSede(sede);
 
 			foreach (var exposicion in _exposiciones)
-			{
 				if (exposicion.EsVigente(DateTime.Now))
-				{
 					duracionVisita = duracionVisita + exposicion.CalcularDuracionVisita();
-				}
-			}
 
 			return duracionVisita;
 		}
-
-}
+	}
 }

@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Servicios.Business {
+﻿namespace Servicios.Business {
 	public class TipoEntrada {
 		private string nombre;
 
-
-		public static implicit operator TipoEntrada(AccesoADatos.TipoEntrada tarifaBd)
-		{
-			var nuevo = new TipoEntrada();
+		public static implicit operator TipoEntrada(AccesoADatos.TipoEntrada tarifaBd) {
+			TipoEntrada nuevo  = new TipoEntrada();
 			nuevo.nombre = tarifaBd.Nombre;
 			
 			return nuevo;
@@ -21,13 +13,11 @@ namespace Servicios.Business {
 			return nombre;
 		}
 
-		public bool EsPublicoGeneral()
-		{
+		public bool EsPublicoGeneral() {
 			return nombre.Equals("Publico General");
 		}
 
-		public bool EsDiscapacitado()
-		{
+		public bool EsDiscapacitado() {
 			return nombre.Equals("Discapacitado");
 		}
 	}

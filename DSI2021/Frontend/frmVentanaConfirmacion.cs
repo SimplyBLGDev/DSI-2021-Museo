@@ -1,12 +1,8 @@
-﻿using Servicios.Business;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace DSI2021.Frontend
-{
-    public partial class frmVentanaConfirmacion : Form
-    {
-        public frmVentanaConfirmacion(int cantidadEntradas, decimal montoPorEntrada, decimal montoTotal, decimal montoPorGuia)
-        {
+namespace DSI2021.Frontend {
+    public partial class frmVentanaConfirmacion : Form {
+        public frmVentanaConfirmacion(int cantidadEntradas, decimal montoPorEntrada, decimal montoTotal, decimal montoPorGuia) {
             InitializeComponent();
 
             lblCantidadEntradas.Text = cantidadEntradas.ToString();
@@ -23,8 +19,6 @@ namespace DSI2021.Frontend
 		private void btnConfirmar_Click(object sender, System.EventArgs e) {
             DialogResult = DialogResult.OK;
             Close();
-        }
-
-      
+        }      
     }
 }

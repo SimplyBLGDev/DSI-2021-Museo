@@ -1,10 +1,8 @@
 ﻿using Servicios.Data;
 using System;
 
-namespace Servicios.Business
-{
-    public class Obra
-    {
+namespace Servicios.Business {
+    public class Obra {
         private string nombre;
         private decimal alto;
         private decimal ancho;
@@ -17,8 +15,7 @@ namespace Servicios.Business
         private decimal peso;
         private decimal valuacion;
 
-        public static implicit operator Obra(AccesoADatos.Obra entidadBd)
-        {
+        public static implicit operator Obra(AccesoADatos.Obra entidadBd) {
             var nuevo = new Obra();
             nuevo.nombre = entidadBd.NombreObra;
             nuevo.alto = entidadBd.Alto ?? 0;
@@ -34,8 +31,7 @@ namespace Servicios.Business
             return nuevo;
         }
 
-        public Hora GetDuracionResumida()
-        {
+        public Hora GetDuracionResumida() {
             return duracionResumida;
         }
     }
