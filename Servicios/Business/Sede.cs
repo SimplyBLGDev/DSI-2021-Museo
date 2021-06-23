@@ -8,7 +8,6 @@ namespace Base.Business {
 		private int cantidadMaximaVisitantes;
 		private string nombre;
 		private int cantMaxPorGuia;
-		private List<Exposicion> exposiciones;
 
 		public int CantMaxPorGuia {
 			get {
@@ -53,6 +52,7 @@ namespace Base.Business {
 
 		public Hora MostrarDuracionDeVisita() {
 			Hora duracionVisita = new Hora(0);
+			List<Exposicion> exposiciones = Persistencia.FetchExposicionesPorSede(this);
 
 			foreach (Exposicion exposicion in exposiciones)
 				if (exposicion.EsVigente(DateTime.Now))

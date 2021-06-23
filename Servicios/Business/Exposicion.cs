@@ -14,15 +14,15 @@ namespace Base.Business {
 
 		private List<DetalleExposicion> detalleExposicion { get; set; } = new List<DetalleExposicion>();
 
-
 		public static implicit operator Exposicion(AccesoADatos.Exposicion tarifaBd) {
-			Exposicion nuevo = new Exposicion();
-			nuevo.nombre = tarifaBd.Nombre;
-			nuevo.fechaInicio = tarifaBd.FechaInicio;
-			nuevo.fechaFin = tarifaBd.FechaFin;
-			nuevo.horaApertura = new Hora(int.Parse(tarifaBd.HoraApertura));
-			nuevo.horaCierre = new Hora(int.Parse(tarifaBd.HoraCierra));
-			nuevo.detalleExposicion = tarifaBd.DetalleExposicion.Select( x=> (DetalleExposicion)x).ToList();
+			Exposicion nuevo = new Exposicion {
+				nombre = tarifaBd.Nombre,
+				fechaInicio = tarifaBd.FechaInicio,
+				fechaFin = tarifaBd.FechaFin,
+				horaApertura = new Hora(int.Parse(tarifaBd.HoraApertura)),
+				horaCierre = new Hora(int.Parse(tarifaBd.HoraCierra)),
+				detalleExposicion = tarifaBd.DetalleExposicion.Select(x => (DetalleExposicion)x).ToList()
+			};
 			return nuevo;
 		}
 
@@ -31,7 +31,7 @@ namespace Base.Business {
 			var duracionVisita = new Hora();
 
 			detalleExposicion.ForEach(x => {
-				duracionVisita = duracionVisita + x.DuracionVisita();
+				duracionVisita += x.DuracionVisita();
 			});
 
 			return duracionVisita;

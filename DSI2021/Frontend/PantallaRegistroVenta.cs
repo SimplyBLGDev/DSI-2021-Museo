@@ -45,8 +45,7 @@ namespace DSI2021.Frontend
 		}
 
 		private int GetCantidadEntradas() {
-			int cantEntradas = 0;
-			if (int.TryParse(txtCantEntradas.Text, out cantEntradas))
+			if (int.TryParse(txtCantEntradas.Text, out int cantEntradas))
 				return cantEntradas;
 
 			return 0;

@@ -39,5 +39,10 @@ namespace Base.Data {
 			ServicioEntrada servicioEntrada = new ServicioEntrada();
 			return servicioEntrada.ListarEntradasDelDia(sede, dia);
 		}
+
+		public static List<Exposicion> FetchExposicionesPorSede(Sede sede) {
+			ServicioExposiciones servicioExposiciones = new ServicioExposiciones();
+			return servicioExposiciones.GetExposicionesPorSede(sede);
+		}
 	}
 }

@@ -22,7 +22,6 @@ namespace Base.Data.Servicios {
 
 		public int FetchUltimoNumero(Sede sede) {
 			var listadoEntradas = repositorioEntrada.Listar();
-			List<Entrada> listadoEntradasBusiness = listadoEntradas.Select(x => (Entrada)x).ToList();
 			Entrada ultimaEntrada = listadoEntradas[listadoEntradas.Count - 1];
 
 			return ultimaEntrada.GetNumero();

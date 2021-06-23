@@ -10,7 +10,7 @@ namespace Base.Data.Servicios {
 
 		public List<Exposicion> GetExposicionesPorSede(Sede sede) {
 			List<AccesoADatos.Exposicion> exposiciones = repositorioExposicion.ListarExposicionesPorSede(sede.id);
-			List<Exposicion> exposicionesBussiness = exposiciones.Select(x => (Exposicion)x).ToList();
+			List<Business.Exposicion> exposicionesBussiness = exposiciones.Select(x => (Business.Exposicion)x).ToList();
 
 			return exposicionesBussiness;
 		}
