@@ -1,7 +1,6 @@
 ﻿using Servicios.Data;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace Servicios.Business {
 	public static class GestorRegistroVenta {
@@ -81,12 +80,6 @@ namespace Servicios.Business {
 			var cantidadConfirmados = _servicioReservas.CantidadDeAlumnosConfirmados(sedeActual);
 			var cantidadReservas = _servicioEntrada.CantidadEntradasReservadas(sedeActual);
 			cantidadEntradas = (cantidadConfirmados + cantidadReservas);
-		}
-
-		public static void mensajeCerrar() {
-			if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.Yes) {
-				Application.Exit();
-			}
 		}
 
 		public static int MostrarCantidadDeVisitantes() {
