@@ -1,17 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AccesoADatos.Repositorios
-{
-    public class RepositorioDetalleDeExposicion : RepositorioBase<DetalleExposicion>
-    {
+namespace AccesoADatos.Repositorios {
+    public class RepositorioDetalleDeExposicion : RepositorioBase<DetalleExposicion> {
         private readonly MuseoEntities _baseDeDatos = new MuseoEntities();
-        public bool ActualizarEntidad(DetalleExposicion entidad)
-        {
-            if (entidad != null)
-            {
+        public bool ActualizarEntidad(DetalleExposicion entidad) {
+            if (entidad != null) {
                 var entidadBase = _baseDeDatos.DetalleExposicion.FirstOrDefault(x => x.Id == entidad.Id);
-
                 entidad.Id = entidad.Id;
 
                 _baseDeDatos.SaveChanges();
@@ -20,10 +15,8 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public bool BorrarEntidad(DetalleExposicion entidad)
-        {
-            if (entidad != null)
-            {
+        public bool BorrarEntidad(DetalleExposicion entidad) {
+            if (entidad != null) {
                 var entidadBase = _baseDeDatos.DetalleExposicion.FirstOrDefault(x => x.Id == entidad.Id);
                 _baseDeDatos.DetalleExposicion.Remove(entidadBase);
                 return true;
@@ -32,10 +25,8 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public bool GuardarEntidad(DetalleExposicion entidad)
-        {
-            if (entidad != null)
-            {
+        public bool GuardarEntidad(DetalleExposicion entidad) {
+            if (entidad != null) {
                 _baseDeDatos.DetalleExposicion.Add(entidad);
                 _baseDeDatos.SaveChanges();
                 return true;
@@ -44,8 +35,7 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public List<DetalleExposicion> Listar()
-        {
+        public List<DetalleExposicion> Listar() {
             return _baseDeDatos.DetalleExposicion.ToList();
         }
     }
