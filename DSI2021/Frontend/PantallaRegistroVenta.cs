@@ -29,7 +29,7 @@ namespace DSI2021.Frontend
                 if (GestorRegistroVenta.ValidarCantidadDeEntradas(cantidadEntradas))
                 {
                     MessageBox.Show("Supero al cantidad máxima de visitantes", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                  
+                    return;
                 }
 
                 GestorRegistroVenta.ConfirmarVenta(cantidadEntradas, GetTarifaSeleccionada());
