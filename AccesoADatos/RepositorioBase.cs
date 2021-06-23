@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace AccesoADatos
-{
-    public interface RepositorioBase<T> where T : class
-    {
-        T GuardarEntidad(T entidad);
+namespace AccesoADatos {
+    public interface RepositorioBase<T> where T : class {
+        bool GuardarEntidad(T entidad);
         bool BorrarEntidad(T entidad);
         bool ActualizarEntidad(T entidad);
         List<T> Listar();

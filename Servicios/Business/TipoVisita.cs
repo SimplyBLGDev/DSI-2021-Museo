@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Servicios.Business {
+﻿namespace Base.Business {
 	public class TipoVisita {
 		private string nombre;
 
-		public static implicit operator TipoVisita(AccesoADatos.TipoVisita tarifaBd)
-		{
-			var nuevo = new TipoVisita();
+		public static implicit operator TipoVisita(AccesoADatos.TipoVisita tarifaBd) {
+			TipoVisita nuevo  = new TipoVisita();
 			nuevo.nombre = tarifaBd.Nombre;
 
 			return nuevo;
@@ -19,11 +12,8 @@ namespace Servicios.Business {
 			return nombre;
 		}
 
-		public bool EsCompleta()
-		{
+		public bool EsCompleta() {
 			return nombre.Equals("Completa");
 		}
-
-
 	}
 }

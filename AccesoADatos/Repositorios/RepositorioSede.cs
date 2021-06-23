@@ -1,20 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AccesoADatos.Repositorios
-{
-    public class RepositorioSede : RepositorioBase<Sede>
-    {
+namespace AccesoADatos.Repositorios {
+    public class RepositorioSede : RepositorioBase<Sede> {
         private readonly MuseoEntities _baseDeDatos = new MuseoEntities();
 
-
-
-        public bool ActualizarEntidad(Sede entidad)
-        {
-            if (entidad != null)
-            {
+        public bool ActualizarEntidad(Sede entidad) {
+            if (entidad != null) {
                 var entidadBase = _baseDeDatos.Sede.FirstOrDefault(x => x.Id == entidad.Id);
-
                 entidad.Id = entidad.Id;
 
                 _baseDeDatos.SaveChanges();
@@ -24,10 +17,8 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public bool BorrarEntidad(Sede entidad)
-        {
-            if (entidad != null)
-            {
+        public bool BorrarEntidad(Sede entidad) {
+            if (entidad != null) {
                 var entidadBase = _baseDeDatos.Sede.FirstOrDefault(x => x.Id == entidad.Id);
                 _baseDeDatos.Sede.Remove(entidadBase);
                 return true;
@@ -36,26 +27,22 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public Sede GuardarEntidad(Sede entidad)
-        {
-            if (entidad != null)
-            {
+        public bool GuardarEntidad(Sede entidad) {
+            if (entidad != null) {
                 _baseDeDatos.Sede.Add(entidad);
                 _baseDeDatos.SaveChanges();
-                return entidad;
+                return true;
             }
 
-            return new Sede();
+            return false;
         }
 
-        public List<Sede> Listar()
-        {
+        public List<Sede> Listar() {
             return _baseDeDatos.Sede.ToList();
         }
-        public Sede BuscarSede(Sede entidad)
-        {
-            if (entidad != null)
-            {
+
+        public Sede BuscarSede(Sede entidad) {
+            if (entidad != null) {
                 var entidadBase = _baseDeDatos.Sede.FirstOrDefault(x => x.Id == entidad.Id);
                 return entidadBase;
             }

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Servicios.Data {
+namespace Base.Business {
 	public struct Hora {
 		public int seconds;
 
@@ -15,7 +11,7 @@ namespace Servicios.Data {
 		public static Hora operator +(Hora a, Hora b) { return new Hora(a.seconds + b.seconds); }
 		public static Hora operator -(Hora a, Hora b) { return new Hora(a.seconds - b.seconds); }
 
-		public string ToString() {
+		public override string ToString() {
 			string hh = Math.Floor(seconds / 3600f).ToString();
 
 			

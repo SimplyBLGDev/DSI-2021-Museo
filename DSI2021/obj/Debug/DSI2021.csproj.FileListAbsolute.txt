@@ -37,3 +37,23 @@ C:\Users\franc\OneDrive\Escritorio\PPAI\1er Entrega\Proyecto\DSI-2021-Museo\DSI2
 C:\Users\franc\OneDrive\Escritorio\PPAI\1er Entrega\Proyecto\DSI-2021-Museo\DSI2021\obj\Debug\DSI2021.csproj.CopyComplete
 C:\Users\franc\OneDrive\Escritorio\PPAI\1er Entrega\Proyecto\DSI-2021-Museo\DSI2021\obj\Debug\DSI2021.exe
 C:\Users\franc\OneDrive\Escritorio\PPAI\1er Entrega\Proyecto\DSI-2021-Museo\DSI2021\obj\Debug\DSI2021.pdb
+F:\code\DSI2021\DSI2021\bin\Debug\DSI2021.exe
+F:\code\DSI2021\DSI2021\bin\Debug\DSI2021.pdb
+F:\code\DSI2021\DSI2021\bin\Debug\Servicios.dll
+F:\code\DSI2021\DSI2021\bin\Debug\AccesoADatos.dll
+F:\code\DSI2021\DSI2021\bin\Debug\EntityFramework.dll
+F:\code\DSI2021\DSI2021\bin\Debug\Servicios.pdb
+F:\code\DSI2021\DSI2021\bin\Debug\AccesoADatos.pdb
+F:\code\DSI2021\DSI2021\bin\Debug\AccesoADatos.dll.config
+F:\code\DSI2021\DSI2021\bin\Debug\EntityFramework.xml
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.csproj.AssemblyReference.cache
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.Frontend.frmEntradasActuales.resources
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.Frontend.frmVentanaConfirmacion.resources
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.MainMenu.resources
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.Frontend.PantallaRegistroVenta.resources
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.Properties.Resources.resources
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.csproj.GenerateResource.cache
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.csproj.CoreCompileInputs.cache
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.csproj.CopyComplete
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.exe
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.pdb
