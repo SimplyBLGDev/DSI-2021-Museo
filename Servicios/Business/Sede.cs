@@ -54,7 +54,7 @@ namespace Servicios.Business {
 		}
 
 		// Patron experto
-        public List<Tarifa> MostrarTarifasExistentes() {
+		public List<Tarifa> MostrarTarifasExistentes() {
 			var tarifas =_servicioSede.MostrarTarifasExistentes(this);
 			List<Tarifa> tarifasValidas = new List<Tarifa>();
 
