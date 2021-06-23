@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Servicios.Business {
+namespace Base.Business {
 	public class Tarifa {
 		private DateTime? fechaInicioVigencia;
 		private DateTime? fechaFinVigencia;

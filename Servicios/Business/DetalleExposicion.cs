@@ -1,6 +1,6 @@
-﻿using Servicios.Data;
+﻿using Base.Data;
 
-namespace Servicios.Business {
+namespace Base.Business {
 	public class DetalleExposicion {
 		private Obra obra;
 		private string lugarAsignado;

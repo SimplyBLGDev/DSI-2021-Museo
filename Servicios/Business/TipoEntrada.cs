@@ -1,4 +1,4 @@
-﻿namespace Servicios.Business {
+﻿namespace Base.Business {
 	public class TipoEntrada {
 		private string nombre;
 

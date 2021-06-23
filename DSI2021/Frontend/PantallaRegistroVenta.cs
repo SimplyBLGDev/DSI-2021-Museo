@@ -1,5 +1,4 @@
-﻿using Servicios.Business;
-using Servicios.Data;
+﻿using Base.Business;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -62,7 +61,7 @@ namespace DSI2021.Frontend
 			// Alta Cohesion: la pantalla llama directamente a el metodo opcionRegistrarVenta,
 			// en vez de llamar al de la Sede
 
-			GestorRegistroVenta.OpcionRegitrarVenta();
+			GestorRegistroVenta.OpcionRegistrarVenta();
 			List<Tarifa> tarifasValidas = GestorRegistroVenta.MostrarTarifas();
 			MostrarTarifas(tarifasValidas);
 		}

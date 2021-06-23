@@ -55,12 +55,13 @@
     <Compile Include="Business\Tarifa.cs" />
     <Compile Include="Business\TipoEntrada.cs" />
     <Compile Include="Business\TipoVisita.cs" />
-    <Compile Include="Data\Hora.cs" />
-    <Compile Include="ServicioEntrada.cs" />
-    <Compile Include="ServicioReservas.cs" />
-    <Compile Include="ServicioSede.cs" />
-    <Compile Include="ServicioExposiciones.cs" />
-    <Compile Include="ServicioTarifa.cs" />
+    <Compile Include="Business\Hora.cs" />
+    <Compile Include="Data\Persistencia.cs" />
+    <Compile Include="Data\Servicios\ServicioEntrada.cs" />
+    <Compile Include="Data\Servicios\ServicioReservas.cs" />
+    <Compile Include="Data\Servicios\ServicioSede.cs" />
+    <Compile Include="Data\Servicios\ServicioExposiciones.cs" />
+    <Compile Include="Data\Servicios\ServicioTarifa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

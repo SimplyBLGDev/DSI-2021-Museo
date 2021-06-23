@@ -36,16 +36,16 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public Sede GuardarEntidad(Sede entidad)
+        public bool GuardarEntidad(Sede entidad)
         {
             if (entidad != null)
             {
                 _baseDeDatos.Sede.Add(entidad);
                 _baseDeDatos.SaveChanges();
-                return entidad;
+                return true;
             }
 
-            return new Sede();
+            return false;
         }
 
         public List<Sede> Listar()

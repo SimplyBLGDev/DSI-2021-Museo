@@ -1,4 +1,4 @@
-﻿using Servicios.Business;
+﻿using Base.Business;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -18,8 +18,8 @@ namespace DSI2021.Frontend {
 				tablaEntradas.Rows[newRowIx].Tag = entrada;
 			});
 
-			lblCupoMaximo.Text = GestorRegistroVenta.MostrarCantidadMaximaVisitantes().ToString();
-			lblCupoActual.Text = GestorRegistroVenta.MostrarCantidadDeVisitantes().ToString();
+			lblCupoMaximo.Text = GestorRegistroVenta.GetCantidadMaximaVisitantes().ToString();
+			lblCupoActual.Text = GestorRegistroVenta.GetCantidadDeVisitantes().ToString();
 		}
 	}
 }

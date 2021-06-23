@@ -33,16 +33,16 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public ReservaVisita GuardarEntidad(ReservaVisita entidad)
+        public bool GuardarEntidad(ReservaVisita entidad)
         {
             if (entidad != null)
             {
                 _baseDeDatos.ReservaVisita.Add(entidad);
                 _baseDeDatos.SaveChanges();
-                return entidad;
+                return true;
             }
 
-            return new ReservaVisita();
+            return false;
         }
 
         public List<ReservaVisita> Listar()

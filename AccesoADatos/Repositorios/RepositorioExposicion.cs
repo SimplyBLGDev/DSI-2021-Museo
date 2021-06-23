@@ -34,16 +34,16 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public Exposicion GuardarEntidad(Exposicion entidad)
+        public bool GuardarEntidad(Exposicion entidad)
         {
             if (entidad != null)
             {
                 _baseDeDatos.Exposicion.Add(entidad);
                 _baseDeDatos.SaveChanges();
-                return entidad;
+                return true;
             }
 
-            return new Exposicion();
+            return true;
         }
 
         public List<Exposicion> Listar()

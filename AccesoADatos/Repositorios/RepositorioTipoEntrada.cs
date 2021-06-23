@@ -36,16 +36,16 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public TipoEntrada GuardarEntidad(TipoEntrada entidad)
+        public bool GuardarEntidad(TipoEntrada entidad)
         {
             if (entidad != null)
             {
                 _baseDeDatos.TipoEntrada.Add(entidad);
                 _baseDeDatos.SaveChanges();
-                return entidad;
+                return true;
             }
 
-            return new TipoEntrada();
+            return false;
         }
 
         public List<TipoEntrada> Listar()

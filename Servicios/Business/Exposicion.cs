@@ -1,9 +1,9 @@
-﻿using Servicios.Data;
+﻿using Base.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Servicios.Business {
+namespace Base.Business {
 	public class Exposicion {
 		
 		private string nombre;

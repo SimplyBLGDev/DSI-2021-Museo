@@ -35,16 +35,16 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public Tarifa GuardarEntidad(Tarifa entidad)
+        public bool GuardarEntidad(Tarifa entidad)
         {
             if (entidad != null)
             {
                 _baseDeDatos.Tarifa.Add(entidad);
                 _baseDeDatos.SaveChanges();
-                return entidad;
+                return true;
             }
 
-            return new Tarifa();
+            return false;
         }
 
         public List<Tarifa> Listar()

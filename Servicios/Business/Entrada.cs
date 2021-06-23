@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Servicios.Business {
+namespace Base.Business {
 	public class Entrada {
 		private Sede sede;
 		private DateTime fechaVenta;
@@ -64,7 +64,7 @@ namespace Servicios.Business {
 			_tarifa = tarifa;
 		}
 
-		public bool EsFecheActual(DateTime fecha) {
+		public bool EsFecha(DateTime fecha) {
 			return fechaVenta.Date == fecha.Date;
 		}
 	}

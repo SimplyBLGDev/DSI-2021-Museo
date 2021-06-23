@@ -32,16 +32,16 @@ namespace AccesoADatos.Repositorios
             return false;
         }
 
-        public Obra GuardarEntidad(Obra entidad)
+        public bool GuardarEntidad(Obra entidad)
         {
             if (entidad != null)
             {
                 _baseDeDatos.Obra.Add(entidad);
                 _baseDeDatos.SaveChanges();
-                return entidad;
+                return true;
             }
 
-            return new Obra();
+            return false;
         }
 
         public List<Obra> Listar()

@@ -1,7 +1,7 @@
-﻿using Servicios.Data;
+﻿using Base.Data;
 using System;
 
-namespace Servicios.Business {
+namespace Base.Business {
 	public class Obra {
 		private string nombre;
 		private decimal alto;
