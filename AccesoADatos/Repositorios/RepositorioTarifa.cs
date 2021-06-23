@@ -28,7 +28,7 @@ namespace AccesoADatos.Repositorios {
         }
 
         public bool GuardarEntidad(Tarifa entidad) {
-            if (entidad != null {
+            if (entidad != null) {
                 _baseDeDatos.Tarifa.Add(entidad);
                 _baseDeDatos.SaveChanges();
                 return true;

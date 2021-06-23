@@ -70,11 +70,13 @@ namespace DSI2021.Frontend
 			foreach (Tarifa tarifa in tarifas) {
 				var id = tarifa.GetNumeroTarifa();
 				var monto = tarifa.GetMonto();
-				var montoAdicional = tarifa.GetMontoAdicional();
+				string montoAdicional = tarifa.GetMontoAdicional().ToString();
+				if (montoAdicional == "0")
+					montoAdicional = "-";
 				var tipoEntrada = tarifa.GetTipoEntrada().GetNombre();
 				var tipoVisita = tarifa.GetTipoVisita().GetNombre();
 
-				int newRowIx = dgvTablaTarifas.Rows.Add(monto, montoAdicional , tipoEntrada, tipoVisita);
+				int newRowIx = dgvTablaTarifas.Rows.Add(monto, montoAdicional, tipoEntrada, tipoVisita);
 				dgvTablaTarifas.Rows[newRowIx].Tag = tarifa;
 			}
 		}
@@ -89,7 +91,6 @@ namespace DSI2021.Frontend
 				lblDuracionVisita.Visible = duracionVisita.seconds > 0;
 				lblTextoDuracionVisita.Visible = duracionVisita.seconds > 0;
 			}
-
 		}
 	}
 }

@@ -8,13 +8,16 @@ namespace Base.Business {
 		private static Sede sedeActual;
 		private static List<Tarifa> tarifas;
 
+		public static void Init() {
+			sedeActual = Persistencia.FetchSede(1); // Constante
+		}
+
 		// Patron Controlador, al existir un objeto de fabricacion pura (tipo controlador) nos va a permitir
 		// mantener la separacion entre la capa de presentacion y la capa de logica de negocio.
 		
 		// Patron Bajo Acomplamiento: el metodo opcionRegistrarVenta esta cumpliendo este patron ya que la
 		// unica relacion que tiene la clase boundary es con el gestor
 		public static void OpcionRegistrarVenta() {
-			sedeActual = Persistencia.FetchSede(1); // Constante
 			BuscarTarifasExistentes();
 		}
 

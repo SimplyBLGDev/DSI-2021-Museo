@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Base.Business;
+using System;
 using System.Windows.Forms;
 
 namespace DSI2021 {
@@ -13,6 +11,7 @@ namespace DSI2021 {
 		static void Main() {
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			GestorRegistroVenta.Init();
 			Application.Run(new MainMenu());
 		}
 	}
