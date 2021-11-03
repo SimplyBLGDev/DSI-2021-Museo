@@ -263,7 +263,7 @@ namespace DSI2021.Frontend
             this.dgv_sede.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_sede.Size = new System.Drawing.Size(589, 248);
             this.dgv_sede.TabIndex = 44;
-            this.dgv_sede.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_sede_CellClick);
+            this.dgv_sede.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SeleccionarExposicion);
             // 
             // dataGridViewTextBoxColumn1
             // 

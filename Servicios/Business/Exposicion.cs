@@ -30,7 +30,7 @@ namespace Base.Business {
 			return nombre;
 		}
 
-		public Hora CalcularDuracionVisita() {
+		public Hora CalcularDuracionObrasExpuestas() {
 
 			var duracionVisita = new Hora();
 

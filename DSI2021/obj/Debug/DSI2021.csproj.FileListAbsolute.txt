@@ -56,3 +56,4 @@ F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.csproj.GenerateResource.cache
 F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.csproj.CoreCompileInputs.cache
 F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.exe
 F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.pdb
+F:\code\DSI2021\DSI2021\obj\Debug\DSI2021.csproj.CopyComplete
