@@ -62,6 +62,9 @@
     <Compile Include="Data\Servicios\ServicioSede.cs" />
     <Compile Include="Data\Servicios\ServicioExposiciones.cs" />
     <Compile Include="Data\Servicios\ServicioTarifa.cs" />
+    <Compile Include="Patrones\EstrategiasConcretas\EstrategiaVisitaExposicion.cs" />
+    <Compile Include="Patrones\EstrategiasConcretas\EstrategiaVisitaCompleta.cs" />
+    <Compile Include="Patrones\Interfaces\IEstrategiaDuracionEstimada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

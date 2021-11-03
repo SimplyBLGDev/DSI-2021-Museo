@@ -9,6 +9,7 @@ namespace DSI2021.Frontend
 
 		Hora duracionVisita;
 		int cantidadEntradas;
+		List<Exposicion> exposicionesSeleccionadas = new List<Exposicion>();
 
 		public PantallaRegistroVenta() {
 			InitializeComponent();
@@ -63,6 +64,16 @@ namespace DSI2021.Frontend
 			GestorRegistroVenta.OpcionRegistrarVenta();
 			List<Tarifa> tarifasValidas = GestorRegistroVenta.MostrarTarifas();
 			MostrarTarifas(tarifasValidas);
+
+			CargarExposiciones();
+
+			dgv_sede.Enabled = false;
+		}
+
+		private void CargarExposiciones()
+		{
+			exposicionesSeleccionadas = GestorRegistroVenta.MostrarExposiciones();
+			MostrarExposiciones(exposicionesSeleccionadas);
 		}
 
 		public void MostrarTarifas(List<Tarifa> tarifas) {
@@ -80,16 +91,38 @@ namespace DSI2021.Frontend
 			}
 		}
 
+		public void MostrarExposiciones(List<Exposicion> exposiciones)
+		{
+			foreach (Exposicion exposicion in exposiciones)
+			{
+				int newRowIx = dgv_sede.Rows.Add(exposicion.GetNombre(),false);
+				dgv_sede.Rows[newRowIx].Tag = exposicion;
+			}
+		}
+
 		private void dgvTablaTarifas_RowEnter(object sender, DataGridViewCellEventArgs e) {
 			TomarSeleccionTarifa(e.RowIndex);
 		}
 
 		private void TomarSeleccionTarifa(int rowIndex) {
-			var tarifaSeleccionda = (Tarifa)dgvTablaTarifas.Rows[rowIndex].Tag;
+			var tarifaSeleccionada = (Tarifa)dgvTablaTarifas.Rows[rowIndex].Tag;
 
-			if (tarifaSeleccionda != null) {
-				duracionVisita = GestorRegistroVenta.CalcularDuracionVisitaCompleta(tarifaSeleccionda);
-				MostrarDuracionVisita(duracionVisita);
+			if (tarifaSeleccionada != null) {
+				var esCompleta = tarifaSeleccionada.GetTipoVisita().EsCompleta();
+				dgv_sede.Enabled = !esCompleta;
+
+				if (esCompleta)
+				{
+					CargarExposiciones();
+					duracionVisita = GestorRegistroVenta.CalcularDuracionVisitaCompleta(tarifaSeleccionada, exposicionesSeleccionadas);
+					MostrarDuracionVisita(duracionVisita);
+				}
+				else
+				{
+					exposicionesSeleccionadas = new List<Exposicion>();
+				}
+
+				dgv_sede.Enabled =!esCompleta;
 			}
 		}
 
@@ -102,6 +135,22 @@ namespace DSI2021.Frontend
 
 		private void ImprimirEntradas() {
 			MessageBox.Show("Imprimir entradas");
+		}
+
+        private void dgv_sede_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+			var exposicion = (Exposicion)dgv_sede.Rows[e.RowIndex].Tag;
+			var seleccionada = !(bool)(dgv_sede.Rows[e.RowIndex]).Cells[1].Value;
+			dgv_sede.Rows[e.RowIndex].Cells[1].Value = seleccionada;
+
+			if (seleccionada)
+				exposicionesSeleccionadas.Add(exposicion);
+			else
+				exposicionesSeleccionadas.Remove(exposicion);
+
+
+			duracionVisita = GestorRegistroVenta.CalcularDuracionVisitaCompleta(GetTarifaSeleccionada(), exposicionesSeleccionadas);
+			MostrarDuracionVisita(duracionVisita);
 		}
 	}
 }

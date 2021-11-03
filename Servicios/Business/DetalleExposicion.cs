@@ -20,5 +20,10 @@ namespace Base.Business {
 			return obra.GetDuracionResumida();
 		}
 
+		public Hora DuracionVisitaExtendida()
+		{
+			return obra.GetDuracionExtendida();
+		}
+
 	}
 }

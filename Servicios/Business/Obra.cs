@@ -34,5 +34,10 @@ namespace Base.Business {
 		public Hora GetDuracionResumida() {
 			return duracionResumida;
 		}
+
+		public Hora GetDuracionExtendida()
+		{
+			return duracionExtendida;
+		}
 	}
 }

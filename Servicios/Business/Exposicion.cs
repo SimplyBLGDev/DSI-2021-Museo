@@ -26,12 +26,29 @@ namespace Base.Business {
 			return nuevo;
 		}
 
+		public string GetNombre()
+		{
+			return nombre;
+		}
+
 		public Hora CalcularDuracionVisita() {
 
 			var duracionVisita = new Hora();
 
 			detalleExposicion.ForEach(x => {
 				duracionVisita += x.DuracionVisita();
+			});
+
+			return duracionVisita;
+		}
+
+		public Hora CalcularDuracionVisitaExtendida()
+		{
+
+			var duracionVisita = new Hora();
+
+			detalleExposicion.ForEach(x => {
+				duracionVisita += x.DuracionVisitaExtendida();
 			});
 
 			return duracionVisita;

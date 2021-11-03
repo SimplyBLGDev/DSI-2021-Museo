@@ -60,5 +60,11 @@ namespace Base.Business {
 
 			return duracionVisita;
 		}
+
+		public List<Exposicion> MostrarExposiciones()
+		{
+			List<Exposicion> exposiciones = Persistencia.FetchExposicionesPorSede(this);
+			return exposiciones;
+		}
 	}
 }
