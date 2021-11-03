@@ -1,4 +1,6 @@
 ﻿using Base.Data;
+using Servicios.Patrones.EstrategiasConcretas;
+using Servicios.Patrones.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +9,8 @@ namespace Base.Business {
 		private static decimal montoAdicionalPorGuia;
 		private static Sede sedeActual;
 		private static List<Tarifa> tarifas;
+		private static List<Exposicion> exposiciones;
+		private static IEstrategiaDuracionEstimada strategiaDeCalculoDeDuracion;
 
 		public static void Init() {
 			sedeActual = Persistencia.FetchSede(1); // Constante
@@ -19,11 +23,13 @@ namespace Base.Business {
 		// unica relacion que tiene la clase boundary es con el gestor
 		public static void OpcionRegistrarVenta() {
 			BuscarTarifasExistentes();
+			BuscarExposicionesSede();
 		}
 
 		private static void BuscarTarifasExistentes() {
 			tarifas = sedeActual.MostrarTarifasExistentes();
 		}
+
 
 		public static List<Tarifa> MostrarTarifas() {
 			return tarifas;
@@ -33,9 +39,15 @@ namespace Base.Business {
 			return DateTime.Now;
 		}
 
-		public static Hora CalcularDuracionVisitaCompleta(Tarifa tarifaSeleccionada) {
-			return tarifaSeleccionada.GetTipoVisita().EsCompleta() ? sedeActual.CalcularDuracionVisita() :
-			new Hora(0);
+		public static Hora CalcularDuracionVisitaCompleta(Tarifa tarifaSeleccionada, List<Exposicion> exposiciones) {
+
+			if (tarifaSeleccionada.GetTipoVisita().EsCompleta())
+				strategiaDeCalculoDeDuracion = new EstrategiaVisitaCompleta();
+			else
+				strategiaDeCalculoDeDuracion = new EstrategiaVisitaExposicion();
+
+
+			return strategiaDeCalculoDeDuracion.CalcularDuracionDeVisita(sedeActual, exposiciones);
 		}
 
 		public static bool ValidarCantidadDeEntradas(int cantidadEntradasUsuario) {
@@ -83,6 +95,16 @@ namespace Base.Business {
 
 		public static List<Entrada> ListarEntradasSedeEnFecha() {
 			return Persistencia.FetchEntradasDeFecha(sedeActual, GetFechaActual());
+		}
+
+		private static void BuscarExposicionesSede()
+		{
+			exposiciones = sedeActual.MostrarExposiciones();
+		}
+
+		public static List<Exposicion> MostrarExposiciones()
+		{
+			return exposiciones;
 		}
 	}
 }
