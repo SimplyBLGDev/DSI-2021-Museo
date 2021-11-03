@@ -1,23 +1,17 @@
 ﻿using Base.Business;
 using Servicios.Patrones.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Servicios.Patrones.EstrategiasConcretas
-{
-   public class EstrategiaVisitaExposicion : IEstrategiaDuracionEstimada
-    {
-        public Hora CalcularDuracionDeVisita(Sede sede, List<Exposicion> exposiciones)
-        {
-            Hora duracionVisita = new Hora(0);
+namespace Servicios.Patrones.EstrategiasConcretas {
 
-            foreach (Exposicion exposicion in exposiciones)
-                    duracionVisita += exposicion.CalcularDuracionVisitaExtendida();
+   public class EstrategiaVisitaExposicion : IEstrategiaDuracionEstimada {
+		public Hora CalcularDuracionVisita(Sede sede, List<Exposicion> exposiciones) {
+			Hora duracionVisita = new Hora(0);
 
-            return duracionVisita;
-        }
-    }
+			foreach (Exposicion exposicion in exposiciones)
+				duracionVisita += exposicion.CalcularDuracionVisitaExtendida();
+
+			return duracionVisita;
+		}
+	}
 }
