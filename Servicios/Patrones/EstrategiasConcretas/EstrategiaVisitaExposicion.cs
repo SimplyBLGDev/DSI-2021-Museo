@@ -1,5 +1,6 @@
 ﻿using Base.Business;
 using Servicios.Patrones.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Servicios.Patrones.EstrategiasConcretas {
@@ -9,7 +10,8 @@ namespace Servicios.Patrones.EstrategiasConcretas {
 			Hora duracionVisita = new Hora(0);
 
 			foreach (Exposicion exposicion in exposiciones)
-				duracionVisita += exposicion.CalcularDuracionVisitaExtendida();
+				if (exposicion.EsVigente(DateTime.Now))
+					duracionVisita += exposicion.CalcularDuracionVisitaExtendida();
 
 			return duracionVisita;
 		}

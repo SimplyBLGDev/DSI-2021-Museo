@@ -3,8 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace DSI2021.Frontend
-{
+namespace DSI2021.Frontend {
 	public partial class PantallaRegistroVenta : Form {
 
 		Hora duracionVisita;
@@ -70,8 +69,7 @@ namespace DSI2021.Frontend
 			dgv_sede.Enabled = false;
 		}
 
-		private void CargarExposiciones()
-		{
+		private void CargarExposiciones() {
 			exposicionesSeleccionadas = GestorRegistroVenta.MostrarExposiciones();
 			MostrarExposiciones(exposicionesSeleccionadas);
 		}
@@ -91,10 +89,9 @@ namespace DSI2021.Frontend
 			}
 		}
 
-		public void MostrarExposiciones(List<Exposicion> exposiciones)
-		{
-			foreach (Exposicion exposicion in exposiciones)
-			{
+		public void MostrarExposiciones(List<Exposicion> exposiciones) {
+			dgv_sede.Rows.Clear();
+			foreach (Exposicion exposicion in exposiciones) {
 				int newRowIx = dgv_sede.Rows.Add(exposicion.GetNombre(),false);
 				dgv_sede.Rows[newRowIx].Tag = exposicion;
 			}
@@ -110,19 +107,12 @@ namespace DSI2021.Frontend
 			if (tarifaSeleccionada != null) {
 				var esCompleta = tarifaSeleccionada.GetTipoVisita().EsCompleta();
 				dgv_sede.Enabled = !esCompleta;
+				for (int i = 0; i < dgv_sede.Rows.Count; i++)
+					dgv_sede.Rows[i].Cells[1].Value = false;
+				
+				exposicionesSeleccionadas = esCompleta? GestorRegistroVenta.MostrarExposiciones() : new List<Exposicion>();
 
-				if (esCompleta)
-				{
-					CargarExposiciones();
-					duracionVisita = GestorRegistroVenta.CalcularDuracionVisitaCompleta(tarifaSeleccionada, exposicionesSeleccionadas);
-					MostrarDuracionVisita(duracionVisita);
-				}
-				else
-				{
-					exposicionesSeleccionadas = new List<Exposicion>();
-				}
-
-				dgv_sede.Enabled =!esCompleta;
+				UpdateDuracionEstimada();
 			}
 		}
 
@@ -137,8 +127,7 @@ namespace DSI2021.Frontend
 			MessageBox.Show("Imprimir entradas");
 		}
 
-        private void dgv_sede_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
+		private void dgv_sede_CellClick(object sender, DataGridViewCellEventArgs e) {
 			var exposicion = (Exposicion)dgv_sede.Rows[e.RowIndex].Tag;
 			var seleccionada = !(bool)(dgv_sede.Rows[e.RowIndex]).Cells[1].Value;
 			dgv_sede.Rows[e.RowIndex].Cells[1].Value = seleccionada;
@@ -148,8 +137,11 @@ namespace DSI2021.Frontend
 			else
 				exposicionesSeleccionadas.Remove(exposicion);
 
+			UpdateDuracionEstimada();
+		}
 
-			duracionVisita = GestorRegistroVenta.CalcularDuracionVisitaCompleta(GetTarifaSeleccionada(), exposicionesSeleccionadas);
+		private void UpdateDuracionEstimada() {
+			duracionVisita = GestorRegistroVenta.CalcularDuracionVisita(GetTarifaSeleccionada(), exposicionesSeleccionadas);
 			MostrarDuracionVisita(duracionVisita);
 		}
 	}

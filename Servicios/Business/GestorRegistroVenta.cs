@@ -39,15 +39,17 @@ namespace Base.Business {
 			return DateTime.Now;
 		}
 
-		public static Hora CalcularDuracionVisitaCompleta(Tarifa tarifaSeleccionada, List<Exposicion> exposiciones) {
-
+		public static Hora CalcularDuracionVisita(Tarifa tarifaSeleccionada, List<Exposicion> exposiciones) {
 			if (tarifaSeleccionada.GetTipoVisita().EsCompleta())
-				strategiaDeCalculoDeDuracion = new EstrategiaVisitaCompleta();
+				SetEstrategia(new EstrategiaVisitaCompleta());
 			else
-				strategiaDeCalculoDeDuracion = new EstrategiaVisitaExposicion();
+				SetEstrategia(new EstrategiaVisitaExposicion());
 
+			return strategiaDeCalculoDeDuracion.CalcularDuracionVisita(sedeActual, exposiciones);
+		}
 
-			return strategiaDeCalculoDeDuracion.CalcularDuracionDeVisita(sedeActual, exposiciones);
+		private static void SetEstrategia(IEstrategiaDuracionEstimada nuevaEstrategia) {
+			strategiaDeCalculoDeDuracion = nuevaEstrategia;
 		}
 
 		public static bool ValidarCantidadDeEntradas(int cantidadEntradasUsuario) {
